@@ -16,7 +16,5 @@ class IRCTC:
             pass
         else:
             TrainSchedule().train_schedule_info()
-            
 
-    
 obj = IRCTC()
