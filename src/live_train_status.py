@@ -10,7 +10,8 @@ class LiveTrainStatus:
         train_no = input("Enter train number:")
         date = input("Enter date (yyyymmdd):")
         self.get_info(train_number=train_no,date=date)
-
+        
+    load_dotenv()
     def get_info(self,train_number,date):
         API_KEY = os.getenv("API_KEY")
         info = requests.get(f"http://indianrailapi.com/api/v2/livetrainstatus/apikey/{API_KEY}/trainnumber/{train_number}/date/{date}/")
