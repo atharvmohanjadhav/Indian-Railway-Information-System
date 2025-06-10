@@ -14,8 +14,8 @@ class TrainScheduleUI:
             if train_no:
                 info = TrainSchedule().get_info(train_number=train_no)
                 if info:
-                    df = pd.DataFrame(info)
-                    st.table(df)
+                    st.dataframe(info)
+                    # st.table(df)
                 else:
                     st.error("invalid train number or No schedule found.")
         except IrisException as e:

@@ -15,8 +15,8 @@ class StationInfoUI:
             if station_name:
                 info = StationInfo().station_info(station=station_name)
                 if info:
-                    df = pd.DataFrame(info)
-                    st.table(df)
+                    st.dataframe(info)
+                    # st.table(df)
                 else:
                     st.error("No station info found or invalid station name.")
         except IrisException as e:

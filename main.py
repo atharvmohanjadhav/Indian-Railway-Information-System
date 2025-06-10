@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 from src.schedule.train_schedule import TrainSchedule
 from src.live_train_status import LiveTrainStatus
 from src.station_details.station_info import StationInfo
-from src.trains_from_station import TrainFromStation
+from src.station_trains.trains_from_station import TrainFromStation
 
 class IRCTC:
     def __init__(self):
