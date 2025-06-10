@@ -8,7 +8,11 @@ class TrainFromStation:
 
     def get_trains_from_station(self):
         station_code = input("Enter station code:")
-        self.trains_info(station_code=station_code)
+        result = self.trains_info(station_code=station_code)
+        if result:
+            print(result)
+        else:
+            print("info not found")
         
     load_dotenv()
     def trains_info(self,station_code):

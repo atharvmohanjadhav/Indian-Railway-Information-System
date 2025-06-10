@@ -24,7 +24,7 @@ class StationInfo:
         try:
             response = requests.get(url)
             print("Status Code:", response.status_code)
-            print("Response Text:", response.text)  # Add this line for debugging
+            print("Response Text:", response.text)
 
             if response.status_code == 200:
                 try:
