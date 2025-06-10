@@ -33,6 +33,10 @@ class TrainSchedule:
                     return info.get("Route",None)
                 except IrisException as e:
                     raise (e,sys)
+            else:
+                print("Failed request:", response.status_code)
+                return None
+            
         except requests.exceptions.RequestException as e:
             print(e)
             return
