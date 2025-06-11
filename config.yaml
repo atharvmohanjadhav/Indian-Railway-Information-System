@@ -1,0 +1,7 @@
+menu_options:
+ - "live location of train" 
+ - "station info"
+ - "train schedule"
+ - "all trains from station"
+ - "train fares"
+ - "seat availability"

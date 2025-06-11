@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from iris_custom_exception.custom_exception import IrisException
+from utils.custom_exception import IrisException
 from src.schedule.train_schedule import TrainSchedule
 import sys
 

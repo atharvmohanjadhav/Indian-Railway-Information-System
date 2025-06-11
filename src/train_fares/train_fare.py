@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 import requests
-from iris_custom_exception.custom_exception import IrisException
+from utils.custom_exception import IrisException
 import sys
 class TrainFare:
 

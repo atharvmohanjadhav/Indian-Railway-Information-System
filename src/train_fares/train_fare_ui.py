@@ -1,7 +1,7 @@
 import streamlit as st 
-from iris_custom_exception.custom_exception import IrisException
+from utils.custom_exception import IrisException
 import sys
-from train_fares.train_fare import TrainFare
+from src.train_fares.train_fare import TrainFare
 
 class TrainFareUI:
 
@@ -19,7 +19,13 @@ class TrainFareUI:
             if train_no and src_station and dest_station and quota:
                 info = TrainFare().train_fare_datail(train_no=train_no,src_station=src_station,dest_station=dest_station,quata=quota)
                 try:
-                    st.write(info)
+                    if info and isinstance(info, (list, dict)) and len(info) > 0:
+                        st.dataframe(info, use_container_width=True)
+                    else:
+                        st.json({
+                            "ResponseCode": "202",
+                            "Message": "Server busy. Try again after 5 Min."
+                        })
                 except IrisException as e:
                     raise (e,sys)
         except IrisException as e:

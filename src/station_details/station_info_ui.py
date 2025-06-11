@@ -1,8 +1,7 @@
-from iris_custom_exception.custom_exception import IrisException
+from utils.custom_exception import IrisException
 import sys
 import streamlit as st
 from src.station_details.station_info import StationInfo
-import pandas as pd
 
 
 class StationInfoUI:
