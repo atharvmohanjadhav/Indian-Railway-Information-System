@@ -2,7 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import sys
-from iris_custom_exception.custom_exception import IrisException
+from utils.custom_exception import IrisException
 
 class TrainSchedule:
 
