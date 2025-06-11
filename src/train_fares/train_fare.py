@@ -29,7 +29,7 @@ class TrainFare:
             if response.status_code == 200:
                 try:
                     info = response.json()
-                    return info.get(None)
+                    return info.get("Fares",None)
                 except IrisException as e:
                     raise (e,sys)
             else:
