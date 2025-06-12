@@ -10,7 +10,7 @@ class StationInfoUI:
         try:
             st.sidebar.write("You selected:", option)
             station_name = st.text_input("Enter station name:")
-            station_name = station_name.lower()
+            station_name = station_name.lower().strip()
 
             if station_name:
                 info = StationInfo().station_info(station=station_name)

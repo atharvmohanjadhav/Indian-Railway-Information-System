@@ -10,7 +10,7 @@ class TrainFromStationUI:
         try:
             st.sidebar.write("You selected:",option)
             station_code = st.text_input("Enter station code (e.g., NDLS, CSMT, BCT)", value="CSMT")
-            station_code = station_code.upper()
+            station_code = station_code.upper().strip()
             if station_code:
                 info = TrainFromStation().trains_info(station_code=station_code)
                 if info and isinstance(info, (list, dict)) and len(info) > 0:

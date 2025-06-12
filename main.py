@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from src.schedule.train_schedule import TrainSchedule
-from src.live_train_status import LiveTrainStatus
+#from src.live_train_status import LiveTrainStatus
 from src.station_details.station_info import StationInfo
 from src.station_trains.trains_from_station import TrainFromStation
 
@@ -14,7 +14,8 @@ class IRCTC:
             """)
         
         if user_ip == "1":
-            LiveTrainStatus().get_live_status()
+            #LiveTrainStatus().get_live_status()
+            pass
         elif user_ip == "2":
             StationInfo().get_station_info()
         elif user_ip == "3":

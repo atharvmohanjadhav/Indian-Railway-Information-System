@@ -7,16 +7,21 @@ class SeatAvailabilityUI:
 
     def get_seat_availability_info(self,option):
         try:
-            st.write("You have select:",option)
-            train_no = st.text_input("Enter train number:")
-            src_station = st.text_input("Enter source station: ")
-            dest_station = st.text_input("Enter destination station")
-            class_code = st.text_input("Enter quata (e.g 1A/2A/3A/SL): ")
+            col1,col2 = st.columns(2)
+            col3,col4 = st.columns(2)
+            with col1:
+                train_no = st.text_input("Enter train number:")
+            with col2:
+                src_station = st.text_input("Enter source station: ")
+            with col3:
+                dest_station = st.text_input("Enter destination station")
+            with col4:
+                class_code = st.text_input("Enter quata (e.g 1A/2A/3A/SL): ")
             reserv_date = st.date_input(label="Select a date",min_value="today")
 
-            src_station = src_station.lower()
-            dest_station = dest_station.lower()
-            class_code = class_code.upper()
+            src_station = src_station.lower().strip()
+            dest_station = dest_station.lower().strip()
+            class_code = class_code.upper().strip()
             d = str(reserv_date)
             d = d.split("-")
             d = "".join(d)
