@@ -9,6 +9,7 @@ from src.train_fares.train_fare_ui import TrainFareUI
 from src.seats.seat_availability_ui import SeatAvailabilityUI
 from scripts.station_code.station_to_code_ui import StationToCodeUI
 from src.special_trains.special_trains_info_ui import SpeacialTrainsUI
+from src.premium_trains.premium_trains_info_ui import PremiumTrainsUI
 from utils.load_yaml import load_yaml_file
 from datetime import datetime
 
@@ -163,6 +164,9 @@ elif option == menu_options[5]:
     SeatAvailabilityUI().get_seat_availability_info(option=option)
 elif option == menu_options[6]:
     SpeacialTrainsUI()
+elif option == menu_options[7]:
+    PremiumTrainsUI()
+
 
 
 from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI

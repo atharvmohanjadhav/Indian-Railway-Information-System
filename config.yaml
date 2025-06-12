@@ -6,6 +6,7 @@ menu_options:
  - "train fares"
  - "seat availability"
  - "speacial trains"
+ - "premium trains"
 
 script_menu:
  - station name to code
