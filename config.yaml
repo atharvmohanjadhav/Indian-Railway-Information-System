@@ -5,9 +5,10 @@ menu_options:
  - "all trains from station"
  - "train fares"
  - "seat availability"
+ - "speacial trains"
 
 script_menu:
  - station name to code
  - train number to name
- - train name to number
+
  
