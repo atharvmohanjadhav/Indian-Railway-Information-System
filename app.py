@@ -144,22 +144,39 @@ with col2:
     """, unsafe_allow_html=True)
 
 options = load_yaml_file("config.yaml")
+menu_options = options["menu_options"]
 
 st.sidebar.subheader("Select which service do you want")
-option = st.sidebar.selectbox(label="Select service", options=options)
+option = st.sidebar.selectbox(label="Select service", options=menu_options)
 
-StationToCodeUI()
 
-if option == options[1]:
+if option == menu_options[1]:
     StationInfoUI().get_station_details(option=option)
-elif option == options[2]:
+elif option == menu_options[2]:
     TrainScheduleUI().get_train_schedule(option=option)
-elif option == options[3]:
+elif option == menu_options[3]:
     TrainFromStationUI().get_all_trains_from_station(option=option)
-elif option == options[4]:
+elif option == menu_options[4]:
     TrainFareUI().get_train_fare_details(option=option)
-elif option == options[5]:
+elif option == menu_options[5]:
     SeatAvailabilityUI().get_seat_availability_info(option=option)
 
 
+from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
+script_options = options["script_menu"]
+with st.sidebar:
+    st.markdown("### 🎛️ Control Panel")
+
+    with st.expander("🔍 Quick Search", expanded=True):
+        search_type = st.selectbox("Search Type", script_options)
+        search_query = st.text_input(f"Enter {search_type}")
+        if st.button("Search", type="primary"):
+            if search_type == script_options[0]:
+                #st.success(f"Searching for {search_type}: {search_query}")
+                StationToCodeUI(station_name=search_query)
+            elif search_type == script_options[1]:
+                TrainNoToNameUI(train_no=search_query)
+            
+
+    
 
