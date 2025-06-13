@@ -192,6 +192,7 @@ elif selected_ui == "rajdhani":
     st.markdown("## 🚄 Rajdhani Trains")
     RajdhaniTrainsUI()
 elif selected_ui == "superfast":
+    st.markdown("## 🚄 Superfast Trains")
     SuperfastTrainsUI()
 
 from scripts.station_code.station_to_code_ui import StationToCodeUI
