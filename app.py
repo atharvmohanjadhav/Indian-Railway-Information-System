@@ -8,8 +8,6 @@ from src.station_trains.trains_from_station_ui import TrainFromStationUI
 from src.train_fares.train_fare_ui import TrainFareUI
 from src.seats.seat_availability_ui import SeatAvailabilityUI
 from scripts.station_code.station_to_code_ui import StationToCodeUI
-from src.special_trains.special_trains_info_ui import SpeacialTrainsUI
-from src.premium_trains.premium_trains_info_ui import PremiumTrainsUI
 from utils.load_yaml import load_yaml_file
 from datetime import datetime
 
@@ -164,10 +162,10 @@ elif option == menu_options[5]:
     SeatAvailabilityUI().get_seat_availability_info(option=option)
 
 
-from src.special_trains.special_trains_info_ui import SpeacialTrainsUI
-from src.premium_trains.premium_trains_info_ui import PremiumTrainsUI
-from src.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
-from src.super_fast_trains.superfast_trains_info_ui import SuperfastTrainsUI
+from src.trains.special_trains.special_trains_info_ui import SpeacialTrainsUI
+from src.trains.premium_trains.premium_trains_info_ui import PremiumTrainsUI
+from src.trains.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
+from src.trains.super_fast_trains.superfast_trains_info_ui import SuperfastTrainsUI
 
 sp_trains_options = options["special_trains"]
 st.sidebar.markdown("### 🛤️ Trains Panel")
