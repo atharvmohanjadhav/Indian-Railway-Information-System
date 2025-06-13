@@ -7,7 +7,6 @@ from src.schedule.train_schedule_ui import TrainScheduleUI
 from src.station_trains.trains_from_station_ui import TrainFromStationUI
 from src.train_fares.train_fare_ui import TrainFareUI
 from src.seats.seat_availability_ui import SeatAvailabilityUI
-from scripts.station_code.station_to_code_ui import StationToCodeUI
 from utils.load_yaml import load_yaml_file
 from datetime import datetime
 
@@ -195,7 +194,7 @@ elif selected_ui == "rajdhani":
 elif selected_ui == "superfast":
     SuperfastTrainsUI()
 
-
+from scripts.station_code.station_to_code_ui import StationToCodeUI
 from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
 script_options = options["script_menu"]
 with st.sidebar:
