@@ -167,6 +167,7 @@ elif option == menu_options[5]:
 from src.special_trains.special_trains_info_ui import SpeacialTrainsUI
 from src.premium_trains.premium_trains_info_ui import PremiumTrainsUI
 from src.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
+from src.super_fast_trains.superfast_trains_info_ui import SuperfastTrainsUI
 
 sp_trains_options = options["special_trains"]
 st.sidebar.markdown("### 🛤️ Trains Panel")
@@ -181,6 +182,8 @@ with st.sidebar.expander("🚅 Search Trains", expanded=True):
             selected_ui = "premium"
         elif search_type == sp_trains_options[2]:
             selected_ui = "rajdhani"
+        elif search_type == sp_trains_options[3]:
+            selected_ui = "superfast"
 
 if selected_ui == "special":
     st.markdown("## 🚅 Special Trains")
@@ -191,6 +194,8 @@ elif selected_ui == "premium":
 elif selected_ui == "rajdhani":
     st.markdown("## 🚄 Rajdhani Trains")
     RajdhaniTrainsUI()
+elif selected_ui == "superfast":
+    SuperfastTrainsUI()
 
 
 from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
