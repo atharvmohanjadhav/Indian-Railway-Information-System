@@ -5,8 +5,13 @@ menu_options:
  - "all trains from station"
  - "train fares"
  - "seat availability"
- - "speacial trains"
+
+
+special_trains:
+ - "special train"
  - "premium trains"
+ - "rajdhani trains"
+
 
 script_menu:
  - station name to code

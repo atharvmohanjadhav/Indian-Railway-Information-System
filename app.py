@@ -162,11 +162,35 @@ elif option == menu_options[4]:
     TrainFareUI().get_train_fare_details(option=option)
 elif option == menu_options[5]:
     SeatAvailabilityUI().get_seat_availability_info(option=option)
-elif option == menu_options[6]:
-    SpeacialTrainsUI()
-elif option == menu_options[7]:
-    PremiumTrainsUI()
 
+
+from src.special_trains.special_trains_info_ui import SpeacialTrainsUI
+from src.premium_trains.premium_trains_info_ui import PremiumTrainsUI
+from src.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
+
+sp_trains_options = options["special_trains"]
+st.sidebar.markdown("### 🛤️ Trains Panel")
+selected_ui = None 
+
+with st.sidebar.expander("🚅 Search Trains", expanded=True):
+    search_type = st.selectbox("Search Type", sp_trains_options)
+    if st.button("Search Trains", type="primary"):
+        if search_type == sp_trains_options[0]:
+            selected_ui = "special"
+        elif search_type == sp_trains_options[1]:
+            selected_ui = "premium"
+        elif search_type == sp_trains_options[2]:
+            selected_ui = "rajdhani"
+
+if selected_ui == "special":
+    st.markdown("## 🚅 Special Trains")
+    SpeacialTrainsUI() 
+elif selected_ui == "premium":
+    st.markdown("## 🚄 Premium Trains")
+    PremiumTrainsUI() 
+elif selected_ui == "rajdhani":
+    st.markdown("## 🚄 Rajdhani Trains")
+    RajdhaniTrainsUI()
 
 
 from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
@@ -179,7 +203,6 @@ with st.sidebar:
         search_query = st.text_input(f"Enter {search_type}")
         if st.button("Search", type="primary"):
             if search_type == script_options[0]:
-                #st.success(f"Searching for {search_type}: {search_query}")
                 StationToCodeUI(station_name=search_query)
             elif search_type == script_options[1]:
                 TrainNoToNameUI(train_no=search_query)
