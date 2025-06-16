@@ -5,9 +5,7 @@ from utils.custom_exception import IrisException
 import sys
 
 class TrainFromStation:
-    def __init__(self) -> None:
-        pass
-
+ 
     def get_trains_from_station(self):
         station_code = input("Enter station code:")
         result = self.trains_info(station_code=station_code)
