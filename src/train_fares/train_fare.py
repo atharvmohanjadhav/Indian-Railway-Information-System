@@ -5,9 +5,6 @@ from utils.custom_exception import IrisException
 import sys
 class TrainFare:
 
-    def __init__(self) -> None:
-        pass
-
     def get_train_fare(self):
         train_no = input("Enter train number:")
         src_station = input("Enter source station: ")
