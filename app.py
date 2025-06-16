@@ -168,6 +168,7 @@ from src.trains.super_fast_trains.superfast_trains_info_ui import SuperfastTrain
 
 sp_trains_options = options["special_trains"]
 st.sidebar.markdown("### 🛤️ Trains Panel")
+
 selected_ui = None 
 
 with st.sidebar.expander("🚅 Search Trains", expanded=True):
