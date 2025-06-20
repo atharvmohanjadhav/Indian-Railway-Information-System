@@ -217,6 +217,7 @@ if selected_service:
             progress_bar = st.progress(0)
             status_text = st.empty()
         
+        
             for i in range(100):
                 progress_bar.progress(i + 1)
                 status_text.text(f'Loading {services_config[selected_service]["title"]}... {i+1}%')
