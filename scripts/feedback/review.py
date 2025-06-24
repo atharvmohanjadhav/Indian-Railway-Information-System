@@ -38,7 +38,6 @@ def get_feedback(text):
         input_variables=['feedback']
     )
 
-
     branch_chain = RunnableBranch(
         (lambda x: x.sentiment == "positive", pos_prompt | model | parser),
         (lambda x: x.sentiment == "negative", neg_prompt | model | parser),
