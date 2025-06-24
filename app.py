@@ -211,6 +211,11 @@ with st.sidebar:
             elif search_type == script_options[1]:
                 TrainNoToNameUI(train_no=search_query)
             
+from scripts.feedback.review_ui import Feedback
+
+Feedback()
+
+
 
     
 

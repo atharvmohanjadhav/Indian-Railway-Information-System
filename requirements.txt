@@ -3,3 +3,6 @@ requests
 pandas
 dotenv
 pyyaml
+langchain
+langchain-groq
+pydantic
