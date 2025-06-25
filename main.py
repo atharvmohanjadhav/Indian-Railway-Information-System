@@ -28,7 +28,4 @@ class IRCTC:
 
 # obj = IRCTC()
             
-from scripts.feedback.review import get_feedback
 
-res = get_feedback("this is a good phone!")
-print(res)
