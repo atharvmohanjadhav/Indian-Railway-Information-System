@@ -26,6 +26,6 @@ class IRCTC:
             exit
 
 
-# obj = IRCTC()
+obj = IRCTC()
             
 
