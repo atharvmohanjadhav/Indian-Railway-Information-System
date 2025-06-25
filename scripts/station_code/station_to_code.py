@@ -5,8 +5,6 @@ import sys
 import requests
 
 class StationToCode:
-    def __init__(self) -> None:
-        pass
 
     load_dotenv()
     def station_to_code_info(self,station_name):
