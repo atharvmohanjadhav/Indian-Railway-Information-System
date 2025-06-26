@@ -6,3 +6,5 @@ pyyaml
 langchain
 langchain-groq
 pydantic
+langchain-core
+langchain-community

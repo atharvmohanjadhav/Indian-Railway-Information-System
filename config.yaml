@@ -18,4 +18,8 @@ script_menu:
  - station name to code
  - train number to name
 
+ai_services:
+  - "select"
+  - "train query agent"
+
  

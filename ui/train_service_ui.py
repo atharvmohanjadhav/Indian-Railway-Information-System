@@ -18,7 +18,7 @@ from scripts.feedback.review_ui import Feedback
 
 class TrainService:
     def __init__(self) -> None:
-        pass
+        
         with st.sidebar:
             st.subheader("🚂 Railway Service Panel")
             options = load_yaml_file("config.yaml")

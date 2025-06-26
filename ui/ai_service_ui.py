@@ -1,24 +1,18 @@
 import streamlit as st
 from scripts.feedback.review_ui import Feedback
+from utils.load_yaml import load_yaml_file
+from ai_services.train_query_agent.run_chain import RunChain
+
 
 class AiService:
     def __init__(self) -> None:
         with st.sidebar:
-            st.subheader("🤖 AI StudyMate Panel")
-            ai_task = st.radio("Choose AI Tool", ["Notes Generator", "Quiz Maker", "Mind Map", "Syllabus Navigator"])
-            user_input = st.text_area("Enter your topic/query")
-            if st.button("Run AI"):
-                st.success(f"Running: {ai_task} for topic '{user_input}'")
+            st.subheader("🚂 Railway Service Panel")
+            options = load_yaml_file("config.yaml")
+            menu_options = options["ai_services"]
+            option = st.selectbox("Select service", menu_options)
+        if option == menu_options[1]:
+            RunChain()
 
-        st.markdown("## 🤖 Welcome to AI StudyMate")
-        st.write("""
-            Use this panel to interact with AI-powered learning tools:
-            - ✍️ **Notes Generator**
-            - 🧠 **Mind Map Visualizer**
-            - 📚 **Syllabus Navigator**
-            - ❓ **Quiz Generator**
-
-            Each tool helps personalize and speed up your learning!
-    """)
         Feedback()
         
