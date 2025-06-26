@@ -18,7 +18,6 @@ from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
 from scripts.feedback.review_ui import Feedback
 
 
-# ---------------------- Streamlit Config ---------------------- #
 st.set_page_config(
     page_title="Indian Railway Info Portal",
     page_icon="🚂",
@@ -26,7 +25,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------------- Custom CSS ---------------------- #
 st.markdown("""
 <style>
     .main .block-container {
@@ -71,7 +69,6 @@ st.markdown("""
 if "active_tab" not in st.session_state:
     st.session_state.active_tab = "Rail Service"
 
-# ---------------------- Header ---------------------- #
 st.markdown("""
     <div class="railway-header">
         <div class="railway-title">🚂 Indian Railway Info Portal</div>
@@ -79,7 +76,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# ---------------------- Tab Simulation ---------------------- #
 col1, col2 = st.columns([1, 1])
 with col1:
     if st.button("🚂 Rail Service"):
@@ -88,7 +84,6 @@ with col2:
     if st.button("🤖 AI Service"):
         st.session_state.active_tab = "AI Service"
 
-# ---------------------- RAIL SERVICE TAB ---------------------- #
 if st.session_state.active_tab == "Rail Service":
     with st.sidebar:
         st.subheader("🚂 Railway Service Panel")
