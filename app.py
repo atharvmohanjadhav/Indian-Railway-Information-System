@@ -148,72 +148,73 @@ menu_options = options["menu_options"]
 st.sidebar.subheader("Select which service do you want")
 option = st.sidebar.selectbox(label="Select service", options=menu_options)
 
+tab1, tab2 = st.tabs([" 🚂 Rail Service", "🤖 AI Service"])
+with tab1:
+    if option == menu_options[1]:
+        StationInfoUI().get_station_details(option=option)
+    elif option == menu_options[2]:
+        TrainScheduleUI().get_train_schedule(option=option)
+    elif option == menu_options[3]:
+        TrainFromStationUI().get_all_trains_from_station(option=option)
+    elif option == menu_options[4]:
+        TrainFareUI().get_train_fare_details(option=option)
+    elif option == menu_options[5]:
+        SeatAvailabilityUI().get_seat_availability_info(option=option)
 
-if option == menu_options[1]:
-    StationInfoUI().get_station_details(option=option)
-elif option == menu_options[2]:
-    TrainScheduleUI().get_train_schedule(option=option)
-elif option == menu_options[3]:
-    TrainFromStationUI().get_all_trains_from_station(option=option)
-elif option == menu_options[4]:
-    TrainFareUI().get_train_fare_details(option=option)
-elif option == menu_options[5]:
-    SeatAvailabilityUI().get_seat_availability_info(option=option)
 
+    from src.trains.special_trains.special_trains_info_ui import SpeacialTrainsUI
+    from src.trains.premium_trains.premium_trains_info_ui import PremiumTrainsUI
+    from src.trains.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
+    from src.trains.super_fast_trains.superfast_trains_info_ui import SuperfastTrainsUI
 
-from src.trains.special_trains.special_trains_info_ui import SpeacialTrainsUI
-from src.trains.premium_trains.premium_trains_info_ui import PremiumTrainsUI
-from src.trains.rajdhani_trains.rajdhani_trains_info_ui import RajdhaniTrainsUI
-from src.trains.super_fast_trains.superfast_trains_info_ui import SuperfastTrainsUI
+    sp_trains_options = options["special_trains"]
+    st.sidebar.markdown("### 🛤️ Trains Panel")
 
-sp_trains_options = options["special_trains"]
-st.sidebar.markdown("### 🛤️ Trains Panel")
+    selected_ui = None 
 
-selected_ui = None 
+    with st.sidebar.expander("🚅 Search Trains", expanded=True):
+        search_type = st.selectbox("Search Type", sp_trains_options)
+        if st.button("Search Trains", type="primary"):
+            if search_type == sp_trains_options[0]:
+                selected_ui = "special"
+            elif search_type == sp_trains_options[1]:
+                selected_ui = "premium"
+            elif search_type == sp_trains_options[2]:
+                selected_ui = "rajdhani"
+            elif search_type == sp_trains_options[3]:
+                selected_ui = "superfast"
 
-with st.sidebar.expander("🚅 Search Trains", expanded=True):
-    search_type = st.selectbox("Search Type", sp_trains_options)
-    if st.button("Search Trains", type="primary"):
-        if search_type == sp_trains_options[0]:
-            selected_ui = "special"
-        elif search_type == sp_trains_options[1]:
-            selected_ui = "premium"
-        elif search_type == sp_trains_options[2]:
-            selected_ui = "rajdhani"
-        elif search_type == sp_trains_options[3]:
-            selected_ui = "superfast"
+    if selected_ui == "special":
+        st.markdown("## 🚅 Special Trains")
+        SpeacialTrainsUI() 
+    elif selected_ui == "premium":
+        st.markdown("## 🚄 Premium Trains")
+        PremiumTrainsUI() 
+    elif selected_ui == "rajdhani":
+        st.markdown("## 🚄 Rajdhani Trains")
+        RajdhaniTrainsUI()
+    elif selected_ui == "superfast":
+        st.markdown("## 🚄 Superfast Trains")
+        SuperfastTrainsUI()
 
-if selected_ui == "special":
-    st.markdown("## 🚅 Special Trains")
-    SpeacialTrainsUI() 
-elif selected_ui == "premium":
-    st.markdown("## 🚄 Premium Trains")
-    PremiumTrainsUI() 
-elif selected_ui == "rajdhani":
-    st.markdown("## 🚄 Rajdhani Trains")
-    RajdhaniTrainsUI()
-elif selected_ui == "superfast":
-    st.markdown("## 🚄 Superfast Trains")
-    SuperfastTrainsUI()
+    from scripts.station_code.station_to_code_ui import StationToCodeUI
+    from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
+    script_options = options["script_menu"]
+    with st.sidebar:
+        st.markdown("### 🎛️ Control Panel")
 
-from scripts.station_code.station_to_code_ui import StationToCodeUI
-from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
-script_options = options["script_menu"]
-with st.sidebar:
-    st.markdown("### 🎛️ Control Panel")
+        with st.expander("🔍 Quick Search", expanded=True):
+            search_type = st.selectbox("Search Type", script_options)
+            search_query = st.text_input(f"Enter {search_type}")
+            if st.button("Search", type="primary"):
+                if search_type == script_options[0]:
+                    StationToCodeUI(station_name=search_query)
+                elif search_type == script_options[1]:
+                    TrainNoToNameUI(train_no=search_query)
+                
+    from scripts.feedback.review_ui import Feedback
 
-    with st.expander("🔍 Quick Search", expanded=True):
-        search_type = st.selectbox("Search Type", script_options)
-        search_query = st.text_input(f"Enter {search_type}")
-        if st.button("Search", type="primary"):
-            if search_type == script_options[0]:
-                StationToCodeUI(station_name=search_query)
-            elif search_type == script_options[1]:
-                TrainNoToNameUI(train_no=search_query)
-            
-from scripts.feedback.review_ui import Feedback
-
-Feedback()
+    Feedback()
 
 
 
