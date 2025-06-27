@@ -1,31 +1,37 @@
+from langchain_groq import ChatGroq
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain.schema.runnable import RunnableSequence
 from dotenv import load_dotenv
-from src.schedule.train_schedule import TrainSchedule
-#from src.live_train_status import LiveTrainStatus
-from src.station_details.station_info import StationInfo
-from src.station_trains.trains_from_station import TrainFromStation
 
-class IRCTC:
-    def __init__(self):
-        user_ip = input("""
-        1. Enter 1 to check live location of train.
-        2. Enter 2 to check station info.
-        3. Enter 3 to check train status. 
-        4. Enter 4 to all trains from station        
-            """)
-        
-        if user_ip == "1":
-            #LiveTrainStatus().get_live_status()
-            pass
-        elif user_ip == "2":
-            StationInfo().get_station_info()
-        elif user_ip == "3":
-            TrainSchedule().train_schedule_info()
-        elif user_ip == "4":
-            TrainFromStation().get_trains_from_station()
-        else:
-            exit
+load_dotenv()
 
+model = ChatGroq(model="llama-3.3-70b-versatile")
 
-obj = IRCTC()
-            
+prompt1 = PromptTemplate(
+    template="""
+        You are a helpful assistant with expert knowledge of Indian Railway stations.
 
+        The user will ask questions about any Indian railway station. Your task is to:
+        - Understand which station is being asked about
+        - Identify the intent (e.g., facilities, platforms, retiring rooms, cleanliness, etc.)
+        - Respond accurately and concisely with relevant information
+
+        User Query: {query}
+
+        Answer:
+        """,
+    input_variables=["query"]
+)
+
+# prompt2 = PromptTemplate(
+#     template="explain the following joke {text}",
+#     input_variables=['text']
+# )
+
+parser = StrOutputParser()
+
+chain = prompt1 | model | parser
+
+res = chain.invoke({"query":"give me a deatailed information about chiplun"})
+print(res)

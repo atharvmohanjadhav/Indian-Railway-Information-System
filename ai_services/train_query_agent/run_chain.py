@@ -8,17 +8,18 @@ import streamlit as st
 class RunChain:
     def __init__(self) -> None:
         try:
-            api_key = st.text_input("Enter your Groq API_KEY")
+            api_key = st.sidebar.text_input("Enter your Groq API_KEY")
+            if api_key:
 
-            chain1 = Extract(api_key=api_key).extract_features()
-            chain2 = SearchTrain(api_key=api_key).search()
+                chain1 = Extract(api_key=api_key).extract_features()
+                chain2 = SearchTrain(api_key=api_key).search()
 
-            final_chain = chain1 | chain2
+                final_chain = chain1 | chain2
 
-            query = st.text_input("Enter your query")
-            if query:
-                res = final_chain.invoke({"query":query})
-                st.write(res)
+                query = st.text_input("Enter your query")
+                if query:
+                    res = final_chain.invoke({"query":query})
+                    st.write(res)
             # return res
         except Exception as e:
             raise IrisException(e,sys)

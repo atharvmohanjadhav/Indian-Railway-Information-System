@@ -22,8 +22,8 @@ class TrainNoToName:
                     info = response.json()
                     return info.get("TrainName",None)
                     
-                except IrisException as e:
-                    raise (e,sys)
+                except Exception as e:
+                    raise IrisException(e,sys)
             else:
                 print("reques failed",response.status_code)
         except requests.exceptions.RequestException as e:

@@ -17,5 +17,5 @@ class StationToCodeUI:
                     st.sidebar.success(info)
                 else:
                     st.sidebar.error("No station info found or invalid station name.")
-        except IrisException as e:
-            raise(e,sys)
+        except Exception as e:
+            raise IrisException(e,sys)
