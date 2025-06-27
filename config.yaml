@@ -20,6 +20,6 @@ script_menu:
 
 ai_services:
   - "select"
-  - "train query agent"
+  - "SmartTrain Finder"
 
  
