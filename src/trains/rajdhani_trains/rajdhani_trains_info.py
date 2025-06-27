@@ -21,8 +21,8 @@ class RajdhaniTrains:
                 try:
                     info = response.json()
                     return info.get("Trains",None)
-                except IrisException as e:
-                    raise (e,sys)
+                except Exception as e:
+                    raise IrisException(e,sys)
             else:
                 print("Failed request:", response.status_code)
                 return None

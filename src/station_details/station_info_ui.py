@@ -19,5 +19,5 @@ class StationInfoUI:
                     # st.table(df)
                 else:
                     st.error("No station info found or invalid station name.")
-        except IrisException as e:
-            raise(e,sys)
+        except Exception as e:
+            raise IrisException(e,sys)

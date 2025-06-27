@@ -16,6 +16,6 @@ class RajdhaniTrainsUI:
                     "Message": "Server busy. Try again after 5 Min."
                 })
                 
-        except IrisException as e:
-            raise (e,sys)
+        except Exception as e:
+            raise IrisException(e,sys)
         

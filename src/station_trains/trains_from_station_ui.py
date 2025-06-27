@@ -23,6 +23,6 @@ class TrainFromStationUI:
             else:
                 st.error("Invalid station code or information not found")
 
-        except IrisException as e:
-            raise (e,sys)
+        except Exception as e:
+            raise IrisException(e,sys)
         

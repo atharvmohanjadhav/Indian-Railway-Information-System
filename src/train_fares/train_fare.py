@@ -27,8 +27,8 @@ class TrainFare:
                 try:
                     info = response.json()
                     return info.get("Fares",None)
-                except IrisException as e:
-                    raise (e,sys)
+                except Exception as e:
+                    raise IrisException(e,sys)
             else:
                 print("Request Failed",response.status_code)
                 return None

@@ -29,8 +29,8 @@ class SeatAvailability:
                 try:
                     info = response.json()
                     return info.get("Availability",None)
-                except IrisException as e:
-                    raise (e,sys)
+                except Exception as e:
+                    raise IrisException(e,sys)
             else:
                 print("Resuqest Failed",response.status_code)
                 return

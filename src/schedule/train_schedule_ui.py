@@ -18,6 +18,6 @@ class TrainScheduleUI:
                     # st.table(df)
                 else:
                     st.error("invalid train number or No schedule found.")
-        except IrisException as e:
-            raise(e,sys)
+        except Exception as e:
+            raise IrisException(e,sys)
         
