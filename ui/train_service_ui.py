@@ -38,7 +38,7 @@ class TrainService:
         with st.sidebar:
             st.markdown("### 🛤️ Trains Panel")
             sp_trains_options = options["special_trains"]
-            with st.expander("🚅 Search Trains", expanded=True):
+            with st.expander("🚅 Search Trains", expanded=False):
                 search_type = st.selectbox("Train Type", sp_trains_options)
         if st.sidebar.button("Search Trains"):
             if search_type == sp_trains_options[0]:
@@ -56,7 +56,7 @@ class TrainService:
         with st.sidebar:
             st.markdown("### 🎛️ Quick Tools")
             script_options = options["script_menu"]
-            with st.expander("🔍 Quick Search", expanded=True):
+            with st.expander("🔍 Quick Search", expanded=False):
                 search_type = st.selectbox("Search Type", script_options)
                 search_query = st.text_input(f"Enter {search_type}")
         if st.sidebar.button("Search"):

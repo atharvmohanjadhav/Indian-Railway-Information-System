@@ -17,6 +17,6 @@ class TrainNoToNameUI:
                 if info:
                     st.sidebar.success(info)
                 else:
-                    st.sidebar.error("No station info found or invalid station name.")
+                    st.sidebar.error("No station info found or invalid train number.")
         except IrisException as e:
             raise(e,sys)
