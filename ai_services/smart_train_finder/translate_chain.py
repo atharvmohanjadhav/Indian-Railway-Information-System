@@ -2,7 +2,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
 
-# Translation prompt template
 translation_prompt = PromptTemplate(
     template="""
         You are a translator. Please translate the following text into {language}:
