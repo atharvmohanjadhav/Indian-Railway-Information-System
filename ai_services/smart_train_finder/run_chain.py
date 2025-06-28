@@ -14,15 +14,12 @@ class RunChain:
                 st.error("Please provide a valid Groq API key.")
                 return
 
-            # ✅ Chains
             chain1 = Extract(api_key=api_key).extract_features()
             chain2 = SearchTrain(api_key=api_key).search()
             translation_chain = get_translation_chain(api_key)
 
-            # ✅ User query input
             query = st.text_input("Tell me where you want to go:")
 
-            # ✅ Run the base chain if new query
             if query and "train_response" not in st.session_state:
                 try:
                     base_chain = chain1 | chain2
@@ -37,7 +34,6 @@ class RunChain:
                     else:
                         raise IrisException(e, sys)
 
-            # ✅ If there’s a response, show translation options
             if "train_response" in st.session_state:
                 st.write("**Original Response:**")
                 st.write(st.session_state.train_response)
@@ -58,7 +54,6 @@ class RunChain:
                     st.write(f"**Translated ({selected_language}):**")
                     st.write(translated)
 
-            # ✅ Reset button to clear state if user wants new query
             if st.button("🔄 New Query"):
                 st.session_state.pop("train_response", None)
                 st.session_state.pop("language", None)
