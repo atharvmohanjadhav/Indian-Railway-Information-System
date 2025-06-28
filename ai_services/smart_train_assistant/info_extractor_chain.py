@@ -10,21 +10,14 @@ class ExtractInfo:
         self.api_key = api_key
 
     def extract_info(self):
-        """
-        Return a Runnable that accepts full message history.
-        """
         try:
-            # ✅ Load your Groq model
             model = ChatGroq(
                 model="llama-3.3-70b-versatile",
                 api_key=self.api_key
             )
 
-            # ✅ Use a simple StrOutputParser (optional)
             parser = StrOutputParser()
 
-            # ✅ For full chat flow, you don’t need PromptTemplate:
-            # Just pass the entire chat history
             return model | parser
 
         except Exception as e:
