@@ -1,7 +1,8 @@
 import streamlit as st
 from scripts.feedback.review_ui import Feedback
 from utils.load_yaml import load_yaml_file
-from ai_services.train_query_agent.run_chain import RunChain
+from ai_services.smart_train_finder.run_chain import RunChain
+from ai_services.smart_train_assistant.run_info_chain import RunInfoChain
 from utils.custom_exception import IrisException
 from utils.session_helper import get_or_set_api_key, reset_api_key  # ✅ Add this
 import sys
@@ -20,9 +21,17 @@ class AiService:
                 menu_options = options["ai_services"]
                 option = st.selectbox("Select service", menu_options)
 
-            if option == menu_options[1] and api_key:
-                RunChain() 
-                 
+            if option == menu_options[1]:
+                if api_key:
+                    RunChain() 
+                else:
+                    st.error("Please enter you API key")
+            elif option == menu_options[2]:
+                if api_key:
+                    RunInfoChain()
+                else:
+                    st.error("Please enter you API key")
+            
             Feedback()
 
         except Exception as e:

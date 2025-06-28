@@ -1,6 +1,6 @@
 from utils.session_helper import get_or_set_api_key
-from ai_services.train_query_agent.extractor_chain import Extract
-from ai_services.train_query_agent.train_search_chain import SearchTrain
+from ai_services.smart_train_finder.extractor_chain import Extract
+from ai_services.smart_train_finder.train_search_chain import SearchTrain
 from utils.custom_exception import IrisException
 import streamlit as st
 import sys
@@ -17,7 +17,7 @@ class RunChain:
             chain2 = SearchTrain(api_key=api_key).search()
             final_chain = chain1 | chain2
 
-            query = st.text_input("Enter your query")
+            query = st.text_input("Tell where you want to go")
             if query:
                 try:
                     res = final_chain.invoke({"query": query})

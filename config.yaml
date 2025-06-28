@@ -21,5 +21,6 @@ script_menu:
 ai_services:
   - "select"
   - "SmartTrain Finder"
+  - "SmartTrain Assistant"
 
  
