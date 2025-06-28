@@ -14,36 +14,52 @@ class RunChain:
                 st.error("Please provide a valid Groq API key.")
                 return
 
+            # Init chains
             chain1 = Extract(api_key=api_key).extract_features()
             chain2 = SearchTrain(api_key=api_key).search()
             translation_chain = get_translation_chain(api_key)
+            base_chain = chain1 | chain2
 
-            query = st.text_input("Tell me where you want to go:")
+            # Initialize session state safely
+            if "train_response" not in st.session_state:
+                st.session_state.train_response = ""
+            if "last_query" not in st.session_state:
+                st.session_state.last_query = ""
+            if "language" not in st.session_state:
+                st.session_state.language = "None"
 
-            if query and "train_response" not in st.session_state:
-                try:
-                    base_chain = chain1 | chain2
-                    res = base_chain.invoke({"query": query})
-                    st.session_state.train_response = res
-                    st.session_state.language = "None"
-                    st.write(res)
-                except Exception as e:
-                    if "invalid_api_key" in str(e).lower():
-                        st.error("Invalid Groq API Key. Please reset and try again.")
-                        return
-                    else:
-                        raise IrisException(e, sys)
+            # User input box (same box for new query and update)
+            query = st.text_input(
+                "Where do you want to go?",
+                value=st.session_state.last_query,
+                placeholder="e.g. Mumbai to Pune tomorrow evening"
+            )
 
-            if "train_response" in st.session_state:
-                st.write("**Original Response:**")
+            if query:
+                # If query changed, re-invoke
+                if query != st.session_state.last_query:
+                    try:
+                        res = base_chain.invoke({"query": query})
+                        st.session_state.train_response = res
+                        st.session_state.last_query = query
+                        st.session_state.language = "None"
+                    except Exception as e:
+                        if "invalid_api_key" in str(e).lower():
+                            st.error("Invalid Groq API Key. Please reset and try again.")
+                            return
+                        else:
+                            raise IrisException(e, sys)
+
+            # Show original response if exists
+            if st.session_state.train_response:
                 st.write(st.session_state.train_response)
 
+                # Translation selectbox
                 selected_language = st.selectbox(
-                    "Translate response to:",
+                    "🌐 Translate response to:",
                     ["None", "Hindi", "Marathi"],
-                    index=["None", "Hindi", "Marathi"].index(st.session_state.get("language", "None"))
+                    index=["None", "Hindi", "Marathi"].index(st.session_state.language)
                 )
-
                 st.session_state.language = selected_language
 
                 if selected_language != "None":
@@ -51,12 +67,8 @@ class RunChain:
                         "text": st.session_state.train_response,
                         "language": selected_language
                     })
-                    st.write(f"**Translated ({selected_language}):**")
+                    st.write(f"### 🌐 Translated ({selected_language}):")
                     st.write(translated)
-
-            if st.button("🔄 New Query"):
-                st.session_state.pop("train_response", None)
-                st.session_state.pop("language", None)
 
         except Exception as e:
             raise IrisException(e, sys)
