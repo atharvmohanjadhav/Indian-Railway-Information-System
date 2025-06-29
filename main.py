@@ -20,12 +20,6 @@ train_chatbot_prompt = PromptTemplate(
 )
 
 
-
-# prompt2 = PromptTemplate(
-#     template="explain the following joke {text}",
-#     input_variables=['text']
-# )
-
 parser = StrOutputParser()
 
 chain = train_chatbot_prompt | model | parser
