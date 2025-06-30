@@ -8,7 +8,6 @@ import sys
 class RunInfoChain:
     def __init__(self) -> None:
         try:
-
             api_key = get_or_set_api_key()
             if not api_key:
                 st.error("Please provide a valid Groq API key.")
@@ -16,30 +15,34 @@ class RunInfoChain:
 
             chain = ExtractInfo(api_key=api_key).extract_info()
 
+            # ✅ Updated consistent system prompt
             system_prompt = """
                 You are SmartTrain Info Chatbot, a helpful Railway AI Assistant.
-                You answer ANY question about a specific train: history, route, fare, stops, punctuality, facilities, or anything else.
-                Be clear, conversational, and helpful. If info is missing, politely suggest the user check official railway sources.
-                """
-            
-            if "messages" not in st.session_state:
-                st.session_state.messages = [SystemMessage(content=system_prompt)]
+                You answer ANY question about a specific train — including history, route, fare, speed, facilities, timing, stops, etc.
+                Be clear, friendly, conversational, and accurate. If any data is unavailable, politely suggest checking the official Indian Railways website or IRCTC app.
+            """
 
-            for msg in st.session_state.messages[1:]: 
+            # ✅ Use train_info_chat_messages to separate it from other bots
+            if "train_info_chat_messages" not in st.session_state:
+                st.session_state.train_info_chat_messages = [SystemMessage(content=system_prompt)]
+
+            # ✅ Show previous conversation
+            for msg in st.session_state.train_info_chat_messages[1:]:
                 role = "assistant" if isinstance(msg, AIMessage) else "user"
                 with st.chat_message(role):
                     st.markdown(msg.content)
 
+            # ✅ Chat input
             user_query = st.chat_input("Ask me anything about your train!")
 
             if user_query:
-                st.session_state.messages.append(HumanMessage(content=user_query))
+                st.session_state.train_info_chat_messages.append(HumanMessage(content=user_query))
                 with st.chat_message("user"):
                     st.markdown(user_query)
 
                 try:
-                    result = chain.invoke(st.session_state.messages)
-                    st.session_state.messages.append(AIMessage(content=result))
+                    result = chain.invoke(st.session_state.train_info_chat_messages)
+                    st.session_state.train_info_chat_messages.append(AIMessage(content=result))
 
                     with st.chat_message("assistant"):
                         st.markdown(result)

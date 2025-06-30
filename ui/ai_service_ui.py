@@ -1,8 +1,9 @@
 import streamlit as st
 from scripts.feedback.review_ui import Feedback
 from utils.load_yaml import load_yaml_file
-from ai_services.smart_train_finder.run_chain import RunChain
-from ai_services.smart_train_assistant.run_info_chain import RunInfoChain
+from ai_services.smart_train_finder.run_chain import RunChain as RunTrainFinderChain
+from ai_services.smart_train_assistant.run_info_chain import RunInfoChain as RunTrainInfoChain
+from ai_services.smart_station_assistant.run_chain import RunStationInfoChain
 from utils.custom_exception import IrisException
 from utils.session_helper import get_or_set_api_key, reset_api_key 
 import sys
@@ -21,17 +22,35 @@ class AiService:
                 menu_options = options["ai_services"]
                 option = st.selectbox("Select service", menu_options)
 
+                # 🗝️ Keep track of which service was last active
+                if "last_service" not in st.session_state:
+                    st.session_state.last_service = None
+
+                # ✅ If service changed, reset its conversation
+                if option != st.session_state.last_service:
+                    st.session_state.last_service = option
+                    # Clear only relevant keys
+                    st.session_state.pop("train_finder_chat_messages", None)
+                    st.session_state.pop("train_info_chat_messages", None)
+                    st.session_state.pop("station_chat_messages", None)
+
+            # ✅ Route to the correct chain
             if option == menu_options[1]:
                 if api_key:
-                    RunChain() 
+                    RunTrainFinderChain()
                 else:
-                    st.error("Please enter you API key")
+                    st.error("Please enter your API key")
             elif option == menu_options[2]:
                 if api_key:
-                    RunInfoChain()
+                    RunTrainInfoChain()
                 else:
-                    st.error("Please enter you API key")
-            
+                    st.error("Please enter your API key")
+            elif option == menu_options[3]:
+                if api_key:
+                    RunStationInfoChain()
+                else:
+                    st.error("Please enter your API key")
+
             Feedback()
 
         except Exception as e:

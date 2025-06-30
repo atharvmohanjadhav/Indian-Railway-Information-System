@@ -22,5 +22,7 @@ ai_services:
   - "select"
   - "SmartTrain Finder"
   - "SmartTrain Assistant"
+  - "SmartStation Assistant"
+  
 
  
