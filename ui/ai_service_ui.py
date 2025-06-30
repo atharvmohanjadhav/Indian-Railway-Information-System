@@ -22,11 +22,9 @@ class AiService:
                 menu_options = options["ai_services"]
                 option = st.selectbox("Select service", menu_options)
 
-                # 🗝️ Keep track of which service was last active
                 if "last_service" not in st.session_state:
                     st.session_state.last_service = None
 
-                # ✅ If service changed, reset its conversation
                 if option != st.session_state.last_service:
                     st.session_state.last_service = option
                     # Clear only relevant keys
@@ -34,7 +32,6 @@ class AiService:
                     st.session_state.pop("train_info_chat_messages", None)
                     st.session_state.pop("station_chat_messages", None)
 
-            # ✅ Route to the correct chain
             if option == menu_options[1]:
                 if api_key:
                     RunTrainFinderChain()
