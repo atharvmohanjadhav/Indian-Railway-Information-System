@@ -53,9 +53,5 @@ class RunStationInfoChain:
                     else:
                         raise IrisException(e, sys)
 
-            # Optional reset button
-            # if st.button("🔄 New Conversation"):
-            #     st.session_state.station_chat_messages = [SystemMessage(content=system_prompt)]
-
         except Exception as e:
             raise IrisException(e, sys)
