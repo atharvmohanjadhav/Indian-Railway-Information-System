@@ -10,41 +10,36 @@ model = ChatGroq(model="llama-3.3-70b-versatile")
 
 from langchain_core.prompts import PromptTemplate
 
-station_chatbot_prompt = PromptTemplate(
+trip_planner_prompt = PromptTemplate(
     template="""
-You are a smart and friendly AI Station Assistant for the Indian Railways.
+        You are SmartTrip Planner, an intelligent Indian Railway Travel Assistant.
 
-Whenever a user gives the name of a railway station, respond with a **detailed, helpful, and human-like paragraph** that includes important information about that station. Where appropriate, use bullet points to organize details like facilities, train names, or nearby places.
+        When a user asks about planning a trip to any place:
+        1. Give a friendly introduction with details about the destination — history, best time to visit, local vibe.
+        2. Recommend places to stay — budget options, hotels, homestays. Include general price range if possible.
+        3. Share a list of must-see attractions and activities near that place — explain each in a short paragraph.
+        4. If user provide a specific days for trip then give structured all day plan.
+        4. Explain how to get there by train:
+        - Direct trains (name & number if you know)
+        - If not, suggest practical connecting routes with major junctions.
+        - Mention nearby railway stations.
+        5. Suggest how to reach each local spot from the station (taxi, bus, walking, etc.).
+        6. End with any tips on local food, safety, or cultural etiquette.
+        7. Be clear, friendly, and conversational. Use short paragraphs with headings. 
+        8. If you don't know any part, politely say so and recommend the user check official railway sites or tourism portals.
 
-You must include the following if available:
-- Station full name and code  
-- Location (city, state)  
-- Number of platforms  
-- Facilities (waiting rooms, toilets, food court, Wi-Fi, elevators, parking, etc.)  
-- A brief history of the station  
-- Major trains passing through or originating there  
-- Accessibility features (escalators, wheelchair access)  
-- Nearby places of interest (tourist spots, hotels, restaurants, etc.)  
-- Any fun facts or recent upgrades/redevelopment
+        User Query:
+        {query}
 
-Your tone must be conversational, polite, and easy to understand.  
-Use bullet points only when listing multiple items — everything else should be in a natural paragraph.  
-If some details are missing, respond politely with:  
-_"I'm sorry, I couldn't find that specific information. Please check the official Indian Railways portal for updated details."_
-
-Now, based on the following user query:
-
-"{query}"
-
-Provide a response with a **well-structured paragraph and bullet points where needed**.
-""",
+        Answer:
+        """,
     input_variables=["query"]
 )
 
 
 parser = StrOutputParser()
 
-chain = station_chatbot_prompt | model | parser
+chain = trip_planner_prompt | model | parser
 
-res = chain.invoke({"query":"tell me about thane station"})
+res = chain.invoke({"query":"i want to plan 1 week trip for konkan"})
 print(res)

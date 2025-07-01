@@ -17,7 +17,7 @@ class Feedback(BaseModel):
 try:
     def get_feedback(text):
 
-        model = ChatGroq(model="deepseek-r1-distill-llama-70b")
+        model = ChatGroq(model="llama-3.3-70b-versatile")
 
         parser = StrOutputParser()
         parser2 = PydanticOutputParser(pydantic_object=Feedback)
