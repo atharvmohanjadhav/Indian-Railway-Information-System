@@ -4,6 +4,7 @@ from utils.load_yaml import load_yaml_file
 from ai_services.smart_train_finder.run_chain import RunChain as RunTrainFinderChain
 from ai_services.smart_train_assistant.run_info_chain import RunInfoChain as RunTrainInfoChain
 from ai_services.smart_station_assistant.run_chain import RunStationInfoChain
+from ai_services.travel_planner_assistant.run_travel_plan_chain import RunTravelPlanChain
 from utils.custom_exception import IrisException
 from utils.session_helper import get_or_set_api_key, reset_api_key 
 import sys
@@ -31,6 +32,7 @@ class AiService:
                     st.session_state.pop("train_finder_chat_messages", None)
                     st.session_state.pop("train_info_chat_messages", None)
                     st.session_state.pop("station_chat_messages", None)
+                    st.session_state.pop("travel_plan_messages", None)
 
             if option == menu_options[1]:
                 if api_key:
@@ -45,6 +47,11 @@ class AiService:
             elif option == menu_options[3]:
                 if api_key:
                     RunStationInfoChain()
+                else:
+                    st.error("Please enter your API key")
+            elif option == menu_options[4]:
+                if api_key:
+                    RunTravelPlanChain()
                 else:
                     st.error("Please enter your API key")
 
