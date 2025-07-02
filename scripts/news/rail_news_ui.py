@@ -1,27 +1,5 @@
-import requests
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-def fetch_railway_news():
-    api_key = os.getenv("NEWS_API_KEY")
-    url = (
-        f"https://newsapi.org/v2/everything?"
-        f"q=Indian%20Railways&"
-        f"sortBy=publishedAt&"
-        f"language=en&"
-        f"apiKey={api_key}"
-    )
-
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        return data["articles"][:10]  # limit to latest 5
-    else:
-        return []
-
 import streamlit as st
+from scripts.news.rail_news import fetch_railway_news
 
 class RunNewsChain:
     def __init__(self) -> None:
@@ -32,7 +10,7 @@ class RunNewsChain:
         if news_list:
             for article in news_list:
                 if article.get('urlToImage'):
-                    st.image(article['urlToImage'])
+                    st.image(article['urlToImage'],width=300)
                 
                 st.markdown(f"### [{article['title']}]({article['url']})")
                 st.write(f"**Source:** {article['source']['name']}  \n**Published:** {article['publishedAt'][:10]}")
@@ -42,4 +20,3 @@ class RunNewsChain:
             st.warning("Sorry, couldn't fetch the latest news at the moment. Please try again later!")
 
 
-RunNewsChain()

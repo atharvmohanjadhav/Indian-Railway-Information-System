@@ -1,6 +1,7 @@
 import streamlit as st
 from ui.train_service_ui import TrainService
 from ui.ai_service_ui import AiService
+from scripts.news.rail_news_ui import RunNewsChain
 
 st.set_page_config(
     page_title="Indian Railway Info Portal",
@@ -60,15 +61,20 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 1])
+col1, col2,col3 = st.columns([1, 1,1])
 with col1:
     if st.button("🚂 Rail Service"):
         st.session_state.active_tab = "Rail Service"
 with col2:
     if st.button("🤖 AI Service"):
         st.session_state.active_tab = "AI Service"
+with col3:
+    if st.button("📰 Rail News"):
+        st.session_state.active_tab = "Rail News"
 
 if st.session_state.active_tab == "Rail Service":
     TrainService()
-else:
+elif st.session_state.active_tab == "AI Service":
     AiService()
+else:
+    RunNewsChain()
