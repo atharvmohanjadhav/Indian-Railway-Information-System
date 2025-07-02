@@ -3,7 +3,7 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from utils.custom_exception import IrisException
-import os
+from utils.prompt_templates import train_finder_prompt
 import sys
 
 class Extract:
@@ -13,15 +13,7 @@ class Extract:
     def extract_features(self):
         try:
             prompt = PromptTemplate(
-                template= """You are a railway assistant. Extract the following fields from user query: 
-                - source (station name)
-                - destination (station name)
-                - date (of travel)
-                - time (optional)
-            Query: {query}
-            Return output ONLY in this JSON format:
-            {{"source":"", "destination":"", "date":"", "time":""}}
-            """,
+                template= train_finder_prompt,
                 input_variables=["query"]
             )
 

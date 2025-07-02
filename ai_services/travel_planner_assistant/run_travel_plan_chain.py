@@ -5,6 +5,7 @@ from ai_services.travel_planner_assistant.travel_plan import TravelPlan
 from utils.custom_exception import IrisException
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 import sys
+from utils.prompt_templates import travel_planner_assistant_prompt
 
 class RunTravelPlanChain :
     def __init__(self) -> None:
@@ -16,20 +17,7 @@ class RunTravelPlanChain :
 
             chain = TravelPlan(api_key=api_key).travel_plan_info()
 
-            system_prompt = """
-                You are SmartTrip Planner, an intelligent, knowledgeable and friendly Indian Railway Travel Assistant.
-                You help users plan trips to any place in India. For each query, you provide:
-                - A friendly introduction about the destination, including its history, best time to visit, and local vibe.
-                - Recommendations for places to stay: budget hotels, homestays, or resorts, with general price ranges if possible.
-                - A list of must-see attractions and activities near the destination, each explained in short, clear paragraphs.
-                - If the user mentions the number of days, provide a structured day-by-day plan.
-                - Clear guidance on how to reach the destination by train: direct trains (name and number if known), and if not available, practical connecting routes via major junctions or nearby railway stations.
-                - Tips on how to reach local spots from the station (taxi, bus, auto, or on foot).
-                - Useful advice on local food, safety, or cultural etiquette.
-                Always respond in a friendly, conversational tone using short paragraphs, bullet points, or headings where helpful. 
-                If you don't know any part of the information, politely let the user know and recommend they check official railway 
-                sites or local tourism portals for the most accurate details.
-                """
+            system_prompt = travel_planner_assistant_prompt
 
             if "travel_plan_messages" not in st.session_state:
                 st.session_state.travel_plan_messages = [SystemMessage(content=system_prompt)]

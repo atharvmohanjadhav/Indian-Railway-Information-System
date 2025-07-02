@@ -4,6 +4,7 @@ from ai_services.smart_train_assistant.info_extractor_chain import ExtractInfo
 from utils.custom_exception import IrisException
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 import sys
+from utils.prompt_templates import train_assistant_prompt
 
 class RunInfoChain:
     def __init__(self) -> None:
@@ -15,11 +16,7 @@ class RunInfoChain:
 
             chain = ExtractInfo(api_key=api_key).extract_info()
 
-            system_prompt = """
-                You are SmartTrain Info Chatbot, a helpful Railway AI Assistant.
-                You answer ANY question about a specific train — including history, route, fare, speed, facilities, timing, stops, etc.
-                Be clear, friendly, conversational, and accurate. If any data is unavailable, politely suggest checking the official Indian Railways website or IRCTC app.
-            """
+            system_prompt = train_assistant_prompt
 
             if "train_info_chat_messages" not in st.session_state:
                 st.session_state.train_info_chat_messages = [SystemMessage(content=system_prompt)]

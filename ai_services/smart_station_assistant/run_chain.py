@@ -4,6 +4,7 @@ from ai_services.smart_station_assistant.station_info_extractor import ExtractSt
 from utils.custom_exception import IrisException
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 import sys
+from utils.prompt_templates import station_assistant_prompt
 
 class RunStationInfoChain:
     def __init__(self) -> None:
@@ -15,14 +16,7 @@ class RunStationInfoChain:
 
             chain = ExtractStationInfo(api_key=api_key).extract_station_info()
 
-            system_prompt = """
-                You are SmartStation Assistant, a knowledgeable and friendly Railway AI helper.
-                You answer ANY question related to an Indian railway station — including its history, location, number of platforms, 
-                major trains, available facilities, nearby places, accessibility, or any unique features.
-                Always respond clearly, conversationally, and with helpful detail. When appropriate, use structured responses 
-                or short lists, but keep the tone human-like and easy to understand.
-                If you don't know something, politely suggest the user check the official Indian Railways portal or ask at the station help desk.
-            """
+            system_prompt = station_assistant_prompt
 
             if "station_chat_messages" not in st.session_state:
                 st.session_state.station_chat_messages = [SystemMessage(content=system_prompt)]
