@@ -7,8 +7,7 @@ class StationToCodeUI:
 
     def __init__(self,station_name):
         try:
-            #st.sidebar.subheader("Station Name To Station Code ⬇️")
-            #station_name = st.sidebar.text_input("station name:")
+  
             station_name = station_name.lower().strip()
 
             if station_name:
