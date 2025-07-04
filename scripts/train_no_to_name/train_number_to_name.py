@@ -5,8 +5,6 @@ import sys
 import requests
 
 class TrainNoToName:
-    def __init__(self) -> None:
-        pass
 
     load_dotenv()
     def train_no_to_name_info(self,train_no):
