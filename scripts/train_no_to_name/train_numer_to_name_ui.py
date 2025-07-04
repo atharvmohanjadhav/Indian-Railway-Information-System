@@ -8,8 +8,6 @@ class TrainNoToNameUI:
 
     def __init__(self,train_no):
         try:
-            #st.sidebar.subheader("Station Name To Station Code ⬇️")
-            #train_no = st.sidebar.text_input("train number:")
             train_no = train_no.lower().strip()
 
             if train_no:
