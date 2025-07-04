@@ -16,7 +16,6 @@ class StationInfoUI:
                 info = StationInfo().station_info(station=station_name)
                 if info:
                     st.dataframe(info)
-                    # st.table(df)
                 else:
                     st.error("No station info found or invalid station name.")
         except Exception as e:
