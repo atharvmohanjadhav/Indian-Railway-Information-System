@@ -15,7 +15,6 @@ class TrainScheduleUI:
                 info = TrainSchedule().get_info(train_number=train_no)
                 if info:
                     st.dataframe(info)
-                    # st.table(df)
                 else:
                     st.error("invalid train number or No schedule found.")
         except Exception as e:
