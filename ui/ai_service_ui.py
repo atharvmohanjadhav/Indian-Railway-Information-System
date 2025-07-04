@@ -28,7 +28,7 @@ class AiService:
 
                 if option != st.session_state.last_service:
                     st.session_state.last_service = option
-                    # Clear only relevant keys
+                    
                     st.session_state.pop("train_finder_chat_messages", None)
                     st.session_state.pop("train_info_chat_messages", None)
                     st.session_state.pop("station_chat_messages", None)
