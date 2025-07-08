@@ -15,7 +15,6 @@ class RunStationInfoChain:
                 return
 
             chain = ExtractStationInfo(api_key=api_key).extract_station_info()
-
             system_prompt = station_assistant_prompt
 
             if "station_chat_messages" not in st.session_state:
