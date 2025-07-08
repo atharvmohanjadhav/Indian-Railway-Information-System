@@ -15,7 +15,6 @@ class RunInfoChain:
                 return
 
             chain = ExtractInfo(api_key=api_key).extract_info()
-
             system_prompt = train_assistant_prompt
 
             if "train_info_chat_messages" not in st.session_state:
