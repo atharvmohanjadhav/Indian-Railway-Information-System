@@ -38,7 +38,7 @@ class RunStationInfoChain:
 
                     with st.chat_message("assistant"):
                         st.markdown(result)
-
+   
                 except Exception as e:
                     if "invalid_api_key" in str(e).lower():
                         st.error("Invalid Groq API Key. Please reset and try again.")
