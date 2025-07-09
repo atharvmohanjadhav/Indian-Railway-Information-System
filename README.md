@@ -1,3 +1,4 @@
 # **Indian Railway Information System**
 
-#### add AI features in project
+## update error handling in utils/streamlit_safe
+## improve FAQ feature

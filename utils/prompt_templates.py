@@ -9,6 +9,29 @@ train_finder_prompt = """You are a railway assistant. Extract the following fiel
             {{"source":"", "destination":"", "date":"", "time":""}}
             """
 
+search_train_prompt = """
+                    You are a smart Railway Assistant.
+
+                    Based on the following travel details:
+                    - Source: {source}
+                    - Destination: {destination}
+                    - Date: {date}
+                    - Time: {time}
+
+                    Your tasks:
+                    1. Find and suggest a list of **available direct trains** for this route on the specified date (and time, if provided).
+
+                    2. If there are **no direct trains**, or the direct options are very limited, then:
+                    - Identify **possible connecting routes** via major junctions or intermediate stations.
+                    - Suggest logical **via routes** (e.g., Source ➝ Junction ➝ Destination) that are practical and minimize total travel time.
+                    - Include train names/numbers for each leg, if possible.
+
+                    3. Present the information in a clear, structured format that is easy for the user to read.
+
+                    Be clear and helpful. If real-time data is missing, politely remind the user to check the official railway site or app for final confirmation.
+                    """
+
+
 language_translate_prompt = """
         You are a translator. Please translate the following text into {language}:
         ---

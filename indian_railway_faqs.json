@@ -1,0 +1,181 @@
+[
+
+    {
+      "question": "Max number of passengers allowed per ticket?",
+      "answer": "6 for General Tickets and 4 for Tatkal tickets.",
+      "category": "General"
+    },
+    {
+      "question": "Can Wait listed tickets be booked?",
+      "answer": "Yes.",
+      "category": "General"
+    },
+    {
+      "question": "Can RAC tickets be booked?",
+      "answer": "Yes.",
+      "category": "General"
+    },
+    {
+      "question": "Can Confirmed tickets be booked?",
+      "answer": "Yes.",
+      "category": "General"
+    },
+    {
+      "question": "Max time limit up to which tickets can be booked?",
+      "answer": "Up to chart preparation.",
+      "category": "General"
+    },
+    {
+      "question": "Is name change permissible?",
+      "answer": "No, facility to change passenger's name is not available on IRCTC website. However, name can be changed at Railway counters as per extant Railway rules.",
+      "category": "General"
+    },
+    {
+      "question": "Is Journey Alteration permissible?",
+      "answer": "No.",
+      "category": "General"
+    },
+    {
+      "question": "Is Change of boarding point permissible?",
+      "answer": "Yes, facility to change boarding point is available on IRCTC website.",
+      "category": "General"
+    },
+    {
+      "question": "Can cancellation be done across counters?",
+      "answer": "No.",
+      "category": "General"
+    },
+    {
+      "question": "Can both Credit card and Debit card be used for booking?",
+      "answer": "Yes, all payment options viz. Credit cards, Debit cards, Net banking, Wallets and Multiple payment services etc. are available on Make Payment Page.",
+      "category": "General"
+    },
+    {
+      "question": "Can Partial Cancellation be done before charting?",
+      "answer": "No.",
+      "category": "General"
+    },
+    {
+      "question": "Is ID Proof Required for Booking?",
+      "answer": "No at the time of booking but required during train journey.",
+      "category": "General"
+    },
+    {
+      "question": "Authority to Travel?",
+      "answer": "Electronic Reservation Slip - printed in standard stationery/VRM/SMS sent by IRCTC along with the original ID of one of the passengers traveling on a PNR.",
+      "category": "General"
+    },
+    {
+      "question": "Booking Hours?",
+      "answer": "12:20 AM to 11:45 PM.",
+      "category": "General"
+    },
+    {
+      "question": "Max number of bookings per month?",
+      "answer": "6. By verifying IRCTC user ID and one of the travelling passenger with their corresponding Aadhaar, 12 bookings can be made per month.",
+      "category": "General"
+    },
+    {
+      "question": "Can Concessional tickets be booked?",
+      "answer": "Yes, Senior Citizen Concession, Divyaang Concession and Journalist Concessions are allowed on booking tickets on IRCTC as per extant Railway rules.",
+      "category": "General"
+    },
+    {
+      "question": "Can Tatkal be booked?",
+      "answer": "Yes.",
+      "category": "General"
+    },
+  
+    {
+      "question": "What Document/ID-Card required to book e-Ticket?",
+      "answer": "The user is not required to give any input of the photo identity card details of any of the passengers while booking the ticket. However, he shall have to carry and show one of the following identity card in original while travelling: Passport, Voter ID card issued by Election Commission of India, Driving Licence issued by RTO, PAN Card issued by Income Tax Department, Photo Identity card having serial number issued by Central/State Government, Student Identity Card with photograph issued by School/College, Nationalized Bank Passbook with photograph, Credit Cards issued by Banks with laminated photograph, Unique Identification Card ‘Aadhaar’/m-Aadhaar/e-Aadhaar, Photo identity cards having serial number issued by public sector undertakings, Passenger showing the Aadhaar/Driving Licence from the ‘Uploaded Document’ section by logging into his/her DigiLocker account is also considered valid proof of identity. Documents uploaded in 'Uploaded Document' section will not be considered as valid proof of identity.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "How can I make payment to book e-ticket?",
+      "answer": "All payment options have been grouped under specific categories (viz. Credit cards, Debit cards, Net banking, Wallets and Multiple payment service etc.). Select the desired Payment Option from the displayed Payment gateway menus. Click on 'Make Payment'.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "How can I cancel e-ticket and how will I get refund?",
+      "answer": "E-Tickets (Reservations) can be cancelled only through IRCTC e-ticketing website. To cancel your e-ticket log on to www.irctc.co.in and go to My Account => My Transactions => Booked ticket History link and select the ticket to be cancelled and then initiate the cancellation by selecting the passengers to be cancelled. Cancellation would be confirmed online and the refund would be credited back to the account used for booking as for normal Internet tickets. If there is any partial cancellation of ticket please ensure that the modified ticket (Electronic Reservation Slip) is printed separately as for the original ticket. All cancellation and refunds are processed as per extant Railway Rules.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "What if I forget to carry Photo Identity card?",
+      "answer": "You must carry the original identity card while travelling. Failure to produce the ID card can lead to being treated as without ticket and penalty may apply as per railway rules.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "How to postpone/prepone journey?",
+      "answer": "Postponement/preponement of journey is not permitted through IRCTC e-ticketing. You may need to cancel and book afresh as per requirement.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "How to change name of passenger?",
+      "answer": "Name change is not permitted online. It can be done at Railway counters as per extant rules by providing required documents.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "Can partial cancellation be done?",
+      "answer": "Yes, partial cancellation can be done by selecting the passengers to be cancelled.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "Can I book break-journey ticket?",
+      "answer": "No, break-journey tickets cannot be booked through IRCTC.",
+      "category": "E-Ticket"
+    },
+    {
+      "question": "Can I book student/other concession ticket?",
+      "answer": "No, student concession tickets cannot be booked online. Other applicable concessions are as per Railway rules.",
+      "category": "E-Ticket"
+    },
+  
+    {
+      "question": "What are the various classes of travel available in Tatkal?",
+      "answer": "Tatkal bookings are allowed in all classes except First AC and Executive class.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "Can I select ladies or general quota along with tatkal quota?",
+      "answer": "No, ladies and general quota cannot be opted for along with Tatkal quota.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "How can I use the internet reservation facility to book Tatkal quota?",
+      "answer": "You have to select the Tatkal check box in the 'Plan my travel' page along with other details for booking tatkal ticket. For some trains/classes/locations Tatkal quota may not be available. Please check the availability before proceeding further.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "What are the concessions available in Tatkal scheme?",
+      "answer": "No concession is allowed in Tatkal Booking.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "How much extra should I pay for my ticket?",
+      "answer": "Tatkal charges per passenger in addition to normal ticket. Tatkal Charges have been fixed as a percentage of fare at the rate of 10% of basic fare for second class and 30% of basic fare for all other classes subject to minimum and maximum as given in the IRCTC table.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "When can I book a tatkal i-ticket and e-ticket?",
+      "answer": "Tatkal booking for AC classes opens at 10:00 AM and for Non-AC classes at 11:00 AM one day in advance excluding date of journey.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "Can I book tatkal ticket from all locations?",
+      "answer": "Yes, tatkal booking facility is available from all computerized Passenger Reservation System (PRS) locations across India.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "What are the rules for cancellation?",
+      "answer": "No refund will be granted on confirmed Tatkal tickets. Partial cancellation of Tatkal tickets is not allowed.",
+      "category": "Tatkal"
+    },
+    {
+      "question": "How can I get in touch with IRCTC?",
+      "answer": "You can contact IRCTC through their customer care numbers, email or visit the IRCTC website for help and support.",
+      "category": "Tatkal"
+    }
+  ]
+  
