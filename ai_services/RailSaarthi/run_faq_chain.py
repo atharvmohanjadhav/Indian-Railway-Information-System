@@ -12,14 +12,6 @@ class FaqChain:
 
     def get_data(self):
         try:
-
-            # 1️⃣ Load your saved index
-            # vectorstore = FAISS.load_local(
-            #     "railsaarthi_faq_index",
-            #     embeddings=HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
-            # )
-
-            # 2️⃣ Build the prompt
             faq_prompt = PromptTemplate(
                 template="""
             You are RailSaarthi, a helpful Indian Railways FAQ assistant.
@@ -37,7 +29,6 @@ class FaqChain:
                 input_variables=["context", "question"]
             )
 
-            # 3️⃣ Setup Retrieval QA chain
             llm = ChatGroq(model="llama-3.3-70b-versatile",api_key=self.api_key)
             qa_chain = RetrievalQA.from_chain_type(
                 llm=llm,

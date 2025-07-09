@@ -30,8 +30,6 @@ try:
 
     vector_store = PineconeVectorStore(index=index, embedding=embeddings)
 
-    # print("data created succesfully")
-
     documents = load_faq_json(json_file="indian_railway_faqs.json")
 
     vector_store.add_documents(documents=documents)

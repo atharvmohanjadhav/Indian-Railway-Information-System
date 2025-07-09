@@ -22,11 +22,9 @@ class RunFaqChain:
             if "last_faq_response" not in st.session_state:
                 st.session_state.last_faq_response = ""
 
-            # System message
             with st.chat_message("assistant"):
-                st.markdown("👋 Hello! Ask me any railway question!")
+                st.markdown("Hello! Ask me any railway question!")
 
-            # User input
             user_query = st.chat_input("Ask your railway question...")
 
             if user_query:
@@ -42,7 +40,6 @@ class RunFaqChain:
                 st.session_state.last_faq_query = user_query
                 st.session_state.last_faq_response = answer
 
-            # Show last answer if it exists
             if st.session_state.last_faq_response:
                 with st.chat_message("assistant"):
                     st.markdown(st.session_state.last_faq_response)
