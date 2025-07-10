@@ -34,4 +34,5 @@ try:
 
     vector_store.add_documents(documents=documents)
 except Exception as e:
+    st.error("Oops! Some error occured...")
     raise IrisException(e,sys)

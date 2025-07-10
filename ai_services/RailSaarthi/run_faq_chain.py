@@ -7,7 +7,7 @@ import sys
 
 class FaqChain:
 
-    def __init__(self,api_key) -> None:
+    def __init__(self,api_key):
         self.api_key = api_key
 
     def get_data(self):
@@ -16,7 +16,6 @@ class FaqChain:
                 template="""
             You are RailSaarthi, a helpful Indian Railways FAQ assistant.
             Answer the user question using ONLY the context below.
-            If the context doesn't contain enough information, say politely you don't have answer tell reffer to official website.
 
             Context:
             {context}
@@ -39,5 +38,6 @@ class FaqChain:
 
             return qa_chain
         except Exception as e:
+            st.error("Oops! Some error occured...")
             raise IrisException(e,sys)
 
