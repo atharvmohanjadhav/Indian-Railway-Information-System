@@ -38,6 +38,5 @@ class FaqChain:
 
             return qa_chain
         except Exception as e:
-            st.error("Oops! Some error occured...")
             raise IrisException(e,sys)
 
