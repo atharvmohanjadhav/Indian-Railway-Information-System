@@ -157,7 +157,7 @@ streamlit run app.py
 
 > **Atharv Mohan Jadhav**
 
-> 📧 [eamil](mailto:atharvjadhav2910@gmail.com)
+> 📧 [email](mailto:atharvjadhav2910@gmail.com)
 > 🌐 [GitHub](https://github.com/atharvmohanjadhav)
 
 ---
