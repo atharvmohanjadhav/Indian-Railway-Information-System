@@ -2,6 +2,7 @@ from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq 
 from ai_services.RailSaarthi.ingest import vector_store
+from utils.prompt_templates import rail_saarthi_prompt
 from utils.custom_exception import IrisException
 import sys
 
@@ -13,18 +14,7 @@ class FaqChain:
     def get_data(self):
         try:
             faq_prompt = PromptTemplate(
-                template="""
-            You are RailSaarthi, a helpful Indian Railways FAQ assistant.
-            Answer the user question using ONLY the context below.
-
-            Context:
-            {context}
-
-            User Question:
-            {question}
-
-            Answer:
-            """,
+                template=rail_saarthi_prompt,
                 input_variables=["context", "question"]
             )
 
