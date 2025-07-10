@@ -1,7 +1,7 @@
 streamlit 
 requests
 pandas
-dotenv
+python-dotenv
 pyyaml
 langchain
 langchain-groq
