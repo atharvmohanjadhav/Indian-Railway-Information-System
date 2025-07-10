@@ -22,6 +22,7 @@ pnpm-lock.yaml
 *.pyo
 *.pyd
 __pycache__/
+__pycache__
 *.egg
 *.egg-info/
 dist/
