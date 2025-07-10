@@ -77,11 +77,11 @@ Indian_Railway_Information_System/
 │   ├── station_details/
 │   ├── station_trains/
 │   └── train_fares/
-├── trains/
-│   ├── premium_trains/
-│   ├── rajdhani_trains/
-│   ├── special_trains/
-│   └── super_fast_trains/
+|   ├── trains/
+|   │   ├── premium_trains/
+|   │   ├── rajdhani_trains/
+|   │   ├── special_trains/
+|   │   └── super_fast_trains/
 ├── ui/
 │   ├── __init__.py
 │   ├── ai_service_ui.py
