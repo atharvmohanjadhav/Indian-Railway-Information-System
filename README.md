@@ -53,7 +53,6 @@ Stay informed with the **latest Indian Railway news**, complete with images!
 * **Groq API** (LLM for chat agents)
 * **Pinecone** (for future RAG / Vector DB)
 * **RAG Architecture**
-
 ---
 
 ## 🗃️ Project Structure
