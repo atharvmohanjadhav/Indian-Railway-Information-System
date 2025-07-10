@@ -23,4 +23,5 @@ class RunNewsChain:
                 st.warning("Sorry, couldn't fetch the latest news at the moment. Please try again later!")
 
         except Exception as e:
+            st.error("Oops! Some error occured...")
             raise IrisException(e,sys)
