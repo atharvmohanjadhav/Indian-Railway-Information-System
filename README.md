@@ -113,6 +113,16 @@ GROQ_API_KEY=YOUR_GROQ_API_KEY
 NEWS_API_KEY=YOUR_NEWS_API_KEY
 API_KEY=YOUR_RAIL_API_KEY
 ```
+---
+
+## 📌 How to find your Groq API key
+
+```bash
+Go to https://console.groq.com/keys
+Log in with your Groq account.
+Click “Create API Key” or use an existing one.
+Copy the key and add it to your .env file under GROQ_API_KEY.
+```
 
 ---
 
