@@ -39,27 +39,27 @@ class AiService:
                 if api_key:
                     RunTrainFinderChain()
                 else:
-                    st.error("Please enter your API key")
+                    st.warning("Please enter your API key")
             elif option == menu_options[2]:
                 if api_key:
                     RunTrainInfoChain()
                 else:
-                    st.error("Please enter your API key")
+                    st.warning("Please enter your API key")
             elif option == menu_options[3]:
                 if api_key:
                     RunStationInfoChain()
                 else:
-                    st.error("Please enter your API key")
+                    st.warning("Please enter your API key")
             elif option == menu_options[4]:
                 if api_key:
                     RunTravelPlanChain()
                 else:
-                    st.error("Please enter your API key")
+                    st.warning("Please enter your API key")
             elif option == menu_options[5]:
                 if api_key:
                     RunFaqChain()
                 else:
-                    st.error("Please enter your API key")
+                    st.warning("Please enter your API key")
 
             Feedback()
 
