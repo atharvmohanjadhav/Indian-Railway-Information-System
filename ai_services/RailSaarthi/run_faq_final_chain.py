@@ -30,15 +30,21 @@ class RunFaqChain:
             if user_query:
                 with st.chat_message("user"):
                     st.markdown(user_query)
+                try:
+                    result = chain.invoke({"query": user_query})
+                    if isinstance(result, dict) and "result" in result:
+                        answer = result["result"]
+                    else:
+                        answer = str(result)
 
-                result = chain.invoke({"query": user_query})
-                if isinstance(result, dict) and "result" in result:
-                    answer = result["result"]
-                else:
-                    answer = str(result)
-
-                st.session_state.last_faq_query = user_query
-                st.session_state.last_faq_response = answer
+                    st.session_state.last_faq_query = user_query
+                    st.session_state.last_faq_response = answer
+                except Exception as e:
+                    if "invalid_api_key" in str(e).lower():
+                        st.error("Invalid Groq API Key. Please reset and try again.")
+                        return
+                    else:
+                        raise IrisException(e, sys)
 
             if st.session_state.last_faq_response:
                 with st.chat_message("assistant"):
