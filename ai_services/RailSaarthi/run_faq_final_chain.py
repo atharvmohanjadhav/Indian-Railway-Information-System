@@ -44,7 +44,8 @@ class RunFaqChain:
                         st.error("Invalid Groq API Key. Please reset and try again.")
                         return
                     else:
-                        raise IrisException(e, sys)
+                        # Raise to be caught by outer block
+                        raise
 
             if st.session_state.last_faq_response:
                 with st.chat_message("assistant"):
@@ -65,6 +66,12 @@ class RunFaqChain:
                         st.write(translated)
 
         except Exception as e:
-            st.error("Oops! Some error occured...")
-            raise IrisException(e, sys)
+            # Only show full traceback if not already handled
+            if "invalid_api_key" in str(e).lower():
+                # Already shown to user; don't raise again
+                pass
+            else:
+                st.error("Oops! Some error occurred...")
+                raise IrisException(e, sys)
+
         

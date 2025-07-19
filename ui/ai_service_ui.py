@@ -64,5 +64,4 @@ class AiService:
             Feedback()
 
         except Exception as e:
-            st.error("Oops! Some error occured...")
             raise IrisException(e, sys)
