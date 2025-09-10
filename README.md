@@ -35,6 +35,7 @@ Built with 🧠 **LangChain**, **Groq API**, and **Streamlit**, this project com
 * 🏢 **SmartStation Assistant** — Get deep insights about any station: history, facilities, nearby attractions.
 * 🗺️ **Travel Planner Assistant** — Plan your entire trip: best time to visit, stay, things to do, how to reach.
 * 🧩 **RailSaarthi: Smart FAQ Assistant** — Get answers to any general railway-related queries.
+* 📖 **StoryBuddy** — Create personalized AI-generated stories based on your mood, genre, and duration.
 
 ---
 
