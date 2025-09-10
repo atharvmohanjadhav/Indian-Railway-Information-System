@@ -14,22 +14,88 @@ from src.trains.super_fast_trains.superfast_trains_info_ui import SuperfastTrain
 
 from scripts.station_code.station_to_code_ui import StationToCodeUI
 from scripts.train_no_to_name.train_numer_to_name_ui import TrainNoToNameUI
-from scripts.feedback.review_ui import Feedback
 
+from scripts.feedback.review_ui import Feedback
 from utils.custom_exception import IrisException
 import sys
+
 
 class TrainService:
     def __init__(self) -> None:
         try:
-        
+            # Load config
+            options = load_yaml_file("config.yaml")
+            menu_options = options["menu_options"]
+
+            # Sidebar selection
             with st.sidebar:
                 st.subheader("🚂 Railway Service Panel")
-                options = load_yaml_file("config.yaml")
-                menu_options = options["menu_options"]
                 option = st.selectbox("Select service", menu_options)
 
-            if option == menu_options[1]:
+            # Custom CSS for attractive service cards
+            st.markdown("""
+                <style>
+                .service-card {
+                    background: linear-gradient(135deg, #283c86, #45a247);
+                    padding: 20px;
+                    border-radius: 14px;
+                    margin-bottom: 18px;
+                    color: white;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+                    transition: transform 0.2s ease-in-out;
+                }
+                .service-card:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+                }
+                .service-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 8px;
+                }
+                .service-desc {
+                    font-size: 15px;
+                    line-height: 1.5;
+                }
+                </style>
+            """, unsafe_allow_html=True)
+
+            if option == menu_options[0]:  # assuming "select" is the first option
+                st.subheader("Available Railway Services")
+
+                services = [
+                    ("📍 Station Info", 
+                    "Get details about a railway station including station code, full name, and location. "
+                    "Perfect for quickly finding the code of your boarding or destination station."),
+
+                    ("🕒 Train Schedule", 
+                    "View detailed schedules of trains including arrival, departure, halt duration, and running days. "
+                    "Helps you plan your journey and check train timings in advance."),
+
+                    ("🚉 All Trains from Station", 
+                    "Find all trains that start, stop, or pass through a given station. "
+                    "Helpful if you only know your starting point but want to explore all available trains from there."),
+
+                    ("💰 Train Fares", 
+                    "Check fare details for different classes (Sleeper, 3A, 2A, 1A, Chair Car, etc.) on specific train routes. "
+                    "You can compare prices before booking tickets."),
+
+                    ("🎟️ Seat Availability", 
+                    "Check real-time seat availability for trains across different classes. "
+                    "Helps you decide whether to book immediately or look for alternate options.")
+                ]
+
+                for title, desc in services:
+                    st.markdown(f"""
+                        <div class="service-card">
+                            <div class="service-title">{title}</div>
+                            <div class="service-desc">{desc}</div>
+                        </div>
+                    """, unsafe_allow_html=True)
+
+
+            # Show UI for the selected service
+            elif option == menu_options[1]:
                 StationInfoUI().get_station_details(option=option)
             elif option == menu_options[2]:
                 TrainScheduleUI().get_train_schedule(option=option)
@@ -38,7 +104,8 @@ class TrainService:
             elif option == menu_options[4]:
                 TrainFareUI().get_train_fare_details(option=option)
             elif option == menu_options[5]:
-                    SeatAvailabilityUI().get_seat_availability_info(option=option)
+                SeatAvailabilityUI().get_seat_availability_info(option=option)
+            
             with st.sidebar:
                 st.markdown("### 🛤️ Trains Panel")
                 sp_trains_options = options["special_trains"]
@@ -68,8 +135,8 @@ class TrainService:
                     StationToCodeUI(station_name=search_query)
                 elif search_type == script_options[1]:
                     TrainNoToNameUI(train_no=search_query)
-
             Feedback()
+
         except Exception as e:
-            st.error("Oops! Some error occured...")
-            raise IrisException(e,sys)
+            st.error("Oops! Some error occurred...")
+            raise IrisException(e, sys)
