@@ -37,7 +37,6 @@ class AiService:
                     st.session_state.pop("station_chat_messages", None)
                     st.session_state.pop("travel_plan_messages", None)
 
-            # ================== Attractive Cards CSS ==================
             st.markdown("""
                 <style>
                 .ai-card {
@@ -65,7 +64,6 @@ class AiService:
                 </style>
             """, unsafe_allow_html=True)
 
-            # ================== Landing Page (when select is chosen) ==================
             if option == menu_options[0]:  
                 st.subheader("✨ Explore Our AI-Powered Services")
 
@@ -100,7 +98,6 @@ class AiService:
                         </div>
                     """, unsafe_allow_html=True)
 
-            # ================== Run Selected Services ==================
             elif option == menu_options[1]:
                 if api_key: RunTrainFinderChain()
                 else: st.warning(" ⚠️ Please enter your API key")

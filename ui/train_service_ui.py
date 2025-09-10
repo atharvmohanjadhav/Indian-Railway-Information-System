@@ -23,16 +23,13 @@ import sys
 class TrainService:
     def __init__(self) -> None:
         try:
-            # Load config
             options = load_yaml_file("config.yaml")
             menu_options = options["menu_options"]
 
-            # Sidebar selection
             with st.sidebar:
                 st.subheader("🚂 Railway Service Panel")
                 option = st.selectbox("Select service", menu_options)
 
-            # Custom CSS for attractive service cards
             st.markdown("""
                 <style>
                 .service-card {
@@ -60,7 +57,7 @@ class TrainService:
                 </style>
             """, unsafe_allow_html=True)
 
-            if option == menu_options[0]:  # assuming "select" is the first option
+            if option == menu_options[0]:  
                 st.subheader("Available Railway Services")
 
                 services = [
@@ -94,7 +91,6 @@ class TrainService:
                     """, unsafe_allow_html=True)
 
 
-            # Show UI for the selected service
             elif option == menu_options[1]:
                 StationInfoUI().get_station_details(option=option)
             elif option == menu_options[2]:
