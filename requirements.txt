@@ -13,3 +13,4 @@ langchain-huggingface
 sentence-transformers
 pinecone
 langchain-pinecone
+langgraph

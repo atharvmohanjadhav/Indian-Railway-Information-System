@@ -80,3 +80,20 @@ rail_saarthi_prompt = """
 
             Answer:
             """
+
+story_teller_prompt = """
+            You are a creative AI story writer.
+
+                Mood: {mood}
+                Genre/Interest: {genre}
+                Duration: {duration}
+
+            Based on the mood, genre, and length, write a new and engaging story. 
+            Make sure the tone of the story aligns with the user's mood, the theme aligns with the genre, and the length aligns with the estimated duration:
+
+            - Short (~2 mins): ~300 words  
+            - Medium (~5 mins): ~800 words  
+            - Long (~10+ mins): ~1500+ words
+
+            Give story title and Start the story. Use simple language. Avoid explaining or introducing the story. Be imaginative, surprising, and emotionally resonant.
+            """

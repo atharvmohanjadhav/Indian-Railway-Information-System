@@ -6,6 +6,7 @@ from ai_services.smart_train_assistant.run_info_chain import RunInfoChain as Run
 from ai_services.smart_station_assistant.run_chain import RunStationInfoChain
 from ai_services.travel_planner_assistant.run_travel_plan_chain import RunTravelPlanChain
 from ai_services.RailSaarthi.run_faq_final_chain import RunFaqChain
+from ai_services.ai_storyteller.story_agent import RunStoryTeller
 from utils.custom_exception import IrisException
 from utils.session_helper import get_or_set_api_key, reset_api_key 
 import sys
@@ -58,6 +59,11 @@ class AiService:
             elif option == menu_options[5]:
                 if api_key:
                     RunFaqChain()
+                else:
+                    st.warning(" ⚠️ Please enter your API key")
+            elif option == menu_options[6]:
+                if api_key:
+                    RunStoryTeller()
                 else:
                     st.warning(" ⚠️ Please enter your API key")
 
