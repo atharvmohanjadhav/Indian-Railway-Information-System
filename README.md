@@ -66,6 +66,7 @@ Indian_Railway_Information_System/
 │   ├── smart_train_assistant/
 │   |── smart_train_finder/
 |   ├── travel_planner_assistant/
+|   ├── StoryBuddy/
 ├── scripts/
 │   ├── feedback/
 │   ├── news/
