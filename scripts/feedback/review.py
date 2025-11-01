@@ -2,7 +2,8 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.output_parsers import PydanticOutputParser
-from langchain.schema.runnable import RunnableBranch,RunnableLambda
+# from langchain.schema.runnable import RunnableBranch,RunnableLambda
+from langchain_core.runnables import RunnableBranch, RunnableLambda
 from pydantic import Field,BaseModel
 from typing import Literal
 from utils.custom_exception import IrisException
