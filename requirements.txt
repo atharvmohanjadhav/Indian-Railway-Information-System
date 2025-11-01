@@ -3,7 +3,7 @@ requests
 pandas
 python-dotenv
 pyyaml
-langchain==0.0.350
+langchain
 langchain-groq
 pydantic
 langchain-core
