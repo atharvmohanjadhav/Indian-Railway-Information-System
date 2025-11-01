@@ -1,5 +1,6 @@
-# from langchain.chains import RetrievalQA
-from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain.chains import RetrievalQA
+# from langchain.chains.retrieval_qa.base import RetrievalQA
+# from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq 
 from ai_services.RailSaarthi.ingest import vector_store
