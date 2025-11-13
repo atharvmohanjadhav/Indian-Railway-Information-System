@@ -6,11 +6,11 @@ pyyaml
 langchain
 langchain-groq
 pydantic
-langchain-core
-langchain-community
 duckduckgo-search
 langchain-huggingface
 sentence-transformers
 pinecone
 langchain-pinecone
 langgraph
+# langchain-core
+# langchain-community
