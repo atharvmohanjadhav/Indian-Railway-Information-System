@@ -1,4 +1,5 @@
-from langchain.chains import RetrievalQA
+# from langchain.chains import RetrievalQA
+from langchain_community.chains import RetrievalQA
 # from langchain.chains.retrieval_qa.base import RetrievalQA
 # from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.prompts import PromptTemplate
