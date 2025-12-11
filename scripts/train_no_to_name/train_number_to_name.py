@@ -12,7 +12,7 @@ class TrainNoToName:
         if not API_KEY:
             print("Invalid API KEY")
             return
-        url = f"http://indianrailapi.com/api/v2/TrainNumberToName/apikey/{API_KEY}/TrainNumber/{train_no}/"
+        url = f"https://indianrailapi.com/api/v2/TrainNumberToName/apikey/{API_KEY}/TrainNumber/{train_no}/"
         try:
             response = requests.get(url=url)
             if response.status_code == 200:

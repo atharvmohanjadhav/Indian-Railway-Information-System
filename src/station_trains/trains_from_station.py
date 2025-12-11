@@ -20,7 +20,7 @@ class TrainFromStation:
         if not API_KEY:
             print("Api key not found")
             return
-        url = f"http://indianrailapi.com/api/v2/AllTrainOnStation/apikey/{API_KEY}/StationCode/{station_code}/"
+        url = f"https://indianrailapi.com/api/v2/AllTrainOnStation/apikey/{API_KEY}/StationCode/{station_code}/"
         try:
             response = requests.get(url=url)
             if response.status_code == 200:

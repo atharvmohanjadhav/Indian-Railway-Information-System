@@ -71,8 +71,8 @@ train_assistant_prompt = """
         Indian trains: timings, route, fare, coach details, speed, facilities,
         history, and major stops.
 
-        If a question is NOT about a train, reply:
-        "I can only answer train-related questions."
+        If a question is NOT about a train, reply then polite reply that you can only answer the questions related to the train,
+        also ask them some follow up questions related to the train. 
 
         If some data is unavailable, suggest checking the official Indian Railways or IRCTC site.
         Be clear and conversational.
