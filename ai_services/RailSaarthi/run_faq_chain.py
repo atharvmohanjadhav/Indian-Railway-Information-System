@@ -9,31 +9,6 @@ from utils.prompt_templates import rail_saarthi_prompt
 from utils.custom_exception import IrisException
 import sys
 
-# class FaqChain:
-
-#     def __init__(self,api_key):
-#         self.api_key = api_key
-
-#     def get_data(self):
-#         try:
-#             faq_prompt = PromptTemplate(
-#                 template=rail_saarthi_prompt,
-#                 input_variables=["context", "question"]
-#             )
-
-#             llm = ChatGroq(model="llama-3.3-70b-versatile",api_key=self.api_key)
-#             qa_chain = RetrievalQA.from_chain_type(
-#                 llm=llm,
-#                 chain_type="stuff",
-#                 retriever=vector_store.as_retriever(search_type="similarity",search_kwargs={"k": 5}),
-#                 chain_type_kwargs={"prompt": faq_prompt}
-#             )
-
-#             return qa_chain
-#         except Exception as e:
-#             raise IrisException(e,sys)
-
-# Change import to use the function, not the variable
 from ai_services.RailSaarthi.ingest import get_vector_store
 
 class FaqChain:
@@ -50,7 +25,6 @@ class FaqChain:
 
             llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=self.api_key)
             
-            # Call the function here to get the connection ONLY when user asks a question
             vector_store = get_vector_store()
 
             qa_chain = RetrievalQA.from_chain_type(
