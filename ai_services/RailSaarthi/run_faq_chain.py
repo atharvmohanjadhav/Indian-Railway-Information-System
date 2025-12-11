@@ -4,7 +4,7 @@ from langchain.chains import RetrievalQA
 # from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq 
-from ai_services.RailSaarthi.ingest import vector_store
+# from ai_services.RailSaarthi.ingest import vector_store
 from utils.prompt_templates import rail_saarthi_prompt
 from utils.custom_exception import IrisException
 import sys

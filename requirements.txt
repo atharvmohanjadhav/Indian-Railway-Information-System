@@ -11,6 +11,6 @@ langchain-community
 duckduckgo-search
 langchain-huggingface
 sentence-transformers
-pinecone
+# pinecone
 langchain-pinecone
 langgraph
