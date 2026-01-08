@@ -13,7 +13,7 @@ class TrainFare:
         self.train_fare_datail(train_no=train_no,src_station=src_station,dest_station=dest_station,quata=quota)
         
     load_dotenv()
-    def train_fare_datail(self,train_no,src_station,dest_station,quata):
+    def train_fare_datail(self,train_no:int,src_station:str,dest_station:str,quata:str) -> str:
         API_KEY = os.getenv("API_KEY")
 
         if not API_KEY:

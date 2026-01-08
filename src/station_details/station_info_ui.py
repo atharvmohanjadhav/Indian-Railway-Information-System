@@ -6,7 +6,7 @@ from src.station_details.station_info import StationInfo
 
 class StationInfoUI:
 
-    def get_station_details(self,option):
+    def get_station_details(self,option:list):
         try:
             st.sidebar.write("You selected:", option)
             station_name = st.text_input("Enter station name:")

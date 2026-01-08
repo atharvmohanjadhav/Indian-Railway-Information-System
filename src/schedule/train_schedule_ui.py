@@ -6,7 +6,7 @@ import sys
 
 class TrainScheduleUI:
 
-    def get_train_schedule(self,option):
+    def get_train_schedule(self,option:list):
         try:
             st.sidebar.write("You selected:", option)
             train_no = st.text_input("Enter Train Number:")

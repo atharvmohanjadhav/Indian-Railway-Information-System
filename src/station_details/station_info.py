@@ -12,7 +12,7 @@ class StationInfo:
         else:
             print("No station information found.")
 
-    def station_info(self, station):
+    def station_info(self, station:str)->str:
         load_dotenv()
         API_KEY = os.getenv("API_KEY")
 

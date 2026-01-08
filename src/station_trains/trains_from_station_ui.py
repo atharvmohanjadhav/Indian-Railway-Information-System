@@ -6,7 +6,7 @@ from src.station_trains.trains_from_station import TrainFromStation
 
 class TrainFromStationUI:
 
-    def get_all_trains_from_station(self,option):
+    def get_all_trains_from_station(self,option:list):
         try:
             st.sidebar.write("You selected:",option)
             station_code = st.text_input("Enter station code (e.g., NDLS, CSMT, BCT)", value="CSMT")

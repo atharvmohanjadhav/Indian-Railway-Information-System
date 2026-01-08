@@ -18,7 +18,7 @@ train_finder_prompt = """
             Query: {query}
 
             Return output ONLY in this JSON format:
-            {"source": "", "destination": "", "date": "", "time": ""}
+            {{"source": "", "destination": "", "date": "", "time": ""}}
             """
 
 

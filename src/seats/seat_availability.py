@@ -15,7 +15,7 @@ class SeatAvailability:
         self.get_seat_availability_info(train_no=train_no,src_station=src_station,dest_station=dest_station,reservation_date=reservation_date,class_code=class_code)
 
     load_dotenv()
-    def get_seat_availability_info(self,train_no,src_station,dest_station,reservation_date,class_code):
+    def get_seat_availability_info(self,train_no:int,src_station:int,dest_station:int,reservation_date:int,class_code:int):
         API_KEY = os.getenv("API_KEY")
 
         if not API_KEY:

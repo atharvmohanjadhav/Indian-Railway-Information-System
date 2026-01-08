@@ -5,7 +5,7 @@ from src.seats.seat_availability import SeatAvailability
 
 class SeatAvailabilityUI:
 
-    def get_seat_availability_info(self,option):
+    def get_seat_availability_info(self):
         try:
             col1,col2 = st.columns(2)
             col3,col4 = st.columns(2)

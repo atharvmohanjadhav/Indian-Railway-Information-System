@@ -5,7 +5,7 @@ from src.train_fares.train_fare import TrainFare
 
 class TrainFareUI:
 
-    def get_train_fare_details(self,option):
+    def get_train_fare_details(self,option:list):
         try:
             col1,col2 = st.columns(2)
             col3,col4 = st.columns(2)

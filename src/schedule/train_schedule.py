@@ -18,7 +18,7 @@ class TrainSchedule:
             print("No info found")
 
     load_dotenv()
-    def get_info(self,train_number):
+    def get_info(self,train_number:int) -> str:
         API_KEY = os.getenv("API_KEY")
         if not API_KEY:
             print("API key not found!")
